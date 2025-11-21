@@ -1,0 +1,14 @@
+---
+interface Props {
+  titulo: string;
+}
+
+const { titulo } = Astro.props as Props;
+---
+
+<div class="flex items-center justify-between mx-2 my-5">
+  <div class="bg-green-500  w-16 rounded-br-xl rounded-tr-xl">
+    <h2 class="ml-1 font-bold text-2xl">{titulo}</h2>
+  </div>
+  <a href={`/categoria/${titulo}`}><h2 class="text-xs">Ver todos</h2></a>
+</div>

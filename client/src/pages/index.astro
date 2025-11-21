@@ -1,0 +1,13 @@
+---
+import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
+import DestacadoModulo from "../components/destacados/DestacadoModulo.astro";
+import CategoriaHome from "../components/categoriasHome/CategoriaHome.astro";
+import SelectorCategoriasModulo from "../components/selectorCategorias/SelectorCategoriasModulo.astro";
+---
+
+<PrincipalLayaout>
+  <DestacadoModulo />
+  <CategoriaHome categoria="Carnícos"/>
+  <SelectorCategoriasModulo/>
+  <CategoriaHome categoria="Granos"/>
+</PrincipalLayaout>

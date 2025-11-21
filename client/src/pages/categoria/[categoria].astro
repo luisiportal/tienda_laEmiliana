@@ -1,0 +1,29 @@
+---
+import { categorias } from '../../categorias';
+import ProductoCard from '../../components/categoriasHome/ProductoCard.astro';
+import PrincipalLayaout from '../../layouts/PrincipalLayaout.astro';
+import { productos } from '../../productos';
+
+export function getStaticPaths() {
+  return categorias.map((c) => ({
+    params: { categoria: c.nombre },
+  }));
+}
+
+
+interface Props {
+  categoria: string;
+}
+
+const { categoria } = Astro.params;
+
+const productosCategoria = productos.filter(
+  (item) => item.categoria === categoria
+);
+
+---
+<PrincipalLayaout>
+  <section class="flex gap-5 flex-wrap m-3">
+    {productosCategoria.map((producto => <ProductoCard producto={producto} css='w-full'/>))}
+  </section>
+</PrincipalLayaout>

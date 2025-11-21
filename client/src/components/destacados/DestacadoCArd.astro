@@ -1,0 +1,26 @@
+---
+import type { Producto } from "../../types/General.type";
+
+interface Props {
+  producto: Producto;
+}
+
+const { producto } = Astro.props as Props;
+---
+
+<div class="bg-neutral-200 p-1 rounded-xl w-72">
+  <img
+    class="w-full h-40 rounded-xl object-cover"
+    src={`images/productos/${producto.image}`}
+    alt={producto.nombre}
+  />
+  <div class="flex items-center justify-between p-2">
+    <h2 class="font-bold text-3xl flex items-center gap-1">
+      {producto.precio}
+      <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
+    </h2>
+    <button class="bg-green-500 rounded-xl p-2 font-bold text-white"
+      >Comprar</button
+    >
+  </div>
+</div>
