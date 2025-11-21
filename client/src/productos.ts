@@ -4,6 +4,7 @@ export const productos = [
   {
     id: 1,
     nombre: "Combo1",
+    description:"2 x chocolate ,1x Pollo 10 lb",
     precio: 80,
     image: "combo1.jpg",
     categoria: "Destacados",

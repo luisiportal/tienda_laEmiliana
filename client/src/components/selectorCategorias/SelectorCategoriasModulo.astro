@@ -6,5 +6,5 @@ import CategoriaCard from "./CategoriaCard.astro";
 
 <section class="bg-green-500  mt-5 pb-3">
     <TituloModulo titulo="Categorías"/>
-    <div class="flex gap-3 mx-3">{categorias.map((categoria => <CategoriaCard categoria={categoria}/>))}</div>
+    <div class="flex gap-3 mx-3 overflow-scroll">{categorias.map((categoria => <CategoriaCard categoria={categoria}/>))}</div>
 </section>

@@ -1,5 +1,5 @@
 ---
-import type { Categoria } from '../../types/General.type';
+import type { Categoria } from "../../types/General.type";
 
 interface Props {
   categoria: Categoria;
@@ -8,9 +8,10 @@ interface Props {
 const { categoria } = Astro.props as Props;
 ---
 
-
-<button title={categoria.nombre}> <img
+<button title={categoria.nombre}>
+  <img
     class="size-20 rounded-xl object-cover"
-    src={`images/productos/${categoria.image}`}
+    src={`/images/productos/${categoria.image}`}
     alt={categoria.nombre}
-  /></button>
+  /></button
+>
