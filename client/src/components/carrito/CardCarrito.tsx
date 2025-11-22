@@ -1,6 +1,6 @@
-import React from "react";
 import type { CartItem } from "../../types/General.type";
 import { useCarritoStore } from "../../stores/carritoStore";
+import Deletebtn from "./Deletebtn";
 
 const CardCarrito = ({
   item,
@@ -9,15 +9,14 @@ const CardCarrito = ({
   item: CartItem;
   productos: CartItem[];
 }) => {
-  const { setCarrito ,carrito} = useCarritoStore();
+  const { setCarrito, carrito } = useCarritoStore();
   const index = productos.indexOf(item);
   const increase = () => {
-    const cantidad = item.cantidad + 1;
     productos[index] = {
       ...item,
       cantidad: item.cantidad + 1,
     };
-    setCarrito({ productos, total:carrito.total + item.precio * cantidad });
+    setCarrito({ productos });
   };
 
   const decrease = () => {
@@ -27,12 +26,14 @@ const CardCarrito = ({
         ...item,
         cantidad,
       };
-      setCarrito({ productos, total: carrito.total - item.precio * cantidad });
+      setCarrito({ productos });
     }
   };
 
   return (
-    <div className="bg-neutral-200 rounded-xl p-3 flex gap-1">
+    <div className="relative bg-neutral-200 rounded-xl p-3 flex gap-1">
+      <Deletebtn id={item.id} />
+
       <img
         className="size-28 rounded-xl object-cover"
         src={`/images/productos/${item.image}`}

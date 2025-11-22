@@ -8,8 +8,9 @@ const CarritoMap = () => {
   const { carrito, setCarrito } = useCarritoStore();
   const carritoGuardado = readLocalStorage("carrito") as Carrito;
 
+
   useEffect(() => {
-    carritoGuardado.total > 0 && setCarrito(carritoGuardado);
+    carritoGuardado.total && carritoGuardado.total > 0 && setCarrito(carritoGuardado);
   }, []);
 
   return (

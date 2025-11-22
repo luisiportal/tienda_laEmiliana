@@ -9,7 +9,7 @@ export type Producto = {
 };
 export type Carrito = {
   productos: CartItem[];
-  total: number;
+  total?: number;
 }
 // Ítem en el carrito (producto + cantidad)
 export type CartItem = Producto & {

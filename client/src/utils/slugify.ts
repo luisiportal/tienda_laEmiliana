@@ -1,3 +1,5 @@
+import type { CartItem, Producto } from "../types/General.type";
+
 export const slugify = (alias: string): string => {
   return alias
     .toLowerCase() // todo en minúsculas
@@ -8,3 +10,11 @@ export const slugify = (alias: string): string => {
     .replace(/\s+/g, "-") // reemplaza espacios por guiones
     .replace(/-+/g, "-"); // evita guiones repetidos
 };
+
+
+export const totalCarrito = ({productos}:{productos:CartItem[]})=>{
+
+  return productos.reduce((total, product) => {
+    return total + product.precio * product.cantidad;
+  }, 0);
+}
