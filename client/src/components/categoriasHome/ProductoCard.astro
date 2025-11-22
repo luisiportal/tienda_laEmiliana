@@ -1,6 +1,6 @@
 ---
 import type { Producto } from "../../types/General.type";
-
+import AddToCart from "./AddToCart";
 interface Props {
   producto: Producto;
   css?: string;
@@ -9,23 +9,23 @@ interface Props {
 const { producto, css = "w-40" } = Astro.props as Props;
 ---
 
-<a class={`bg-neutral-200 rounded-xl p-1 ${css}`} href={`/productos/${producto.alias}`}
-  ><section >
+<section class={`bg-neutral-200 rounded-xl p-1 ${css}`}>
+  <a href={`/productos/${producto.alias}`}>
     <img
+      transition:name={`producto-${producto.id}`}
+      transition:name={`productoDesta-${producto.id}`}
+      transition:animate="initial"
       class="w-full h-40 rounded-xl object-cover"
       src={`/images/productos/${producto.image}`}
       alt={producto.nombre}
     />
     <h2 class="font-bold ml-2 my-2">{producto.nombre}</h2>
-
-    <div class="flex justify-between">
-      <h2 class="font-bold text-3xl flex items-center gap-1">
-        {producto.precio}
-        <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
-      </h2>
-      <button class="bg-green-500 text-white font-bold rounded-xl p-2"
-        >Agregar</button
-      >
-    </div>
-  </section></a
->
+  </a>
+  <div class="flex justify-between">
+    <h2 class="font-bold text-3xl flex items-center gap-1">
+      {producto.precio}
+      <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
+    </h2>
+    <AddToCart producto={producto} client:visible />
+  </div>
+</section>

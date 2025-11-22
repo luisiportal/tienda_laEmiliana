@@ -7,4 +7,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  paths: {
+    "@components/*": ["src/components/*"],
+    "@layouts/*": ["src/layouts/*"],
+  },
 });

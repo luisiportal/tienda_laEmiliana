@@ -21,9 +21,13 @@ const productoEncontrado = productos.find(
 );
 ---
 
-<PrincipalLayaout title={productoEncontrado?.nombre ?? ""} description={productoEncontrado?.description ?? ""}>
+<PrincipalLayaout
+  title={productoEncontrado?.nombre ?? ""}
+  description={productoEncontrado?.description ?? ""}
+>
   <section class="bg-neutral-200 p-3 mt-5">
     <img
+      transition:name={`producto-${productoEncontrado?.id}`}
       class="w-full h-full rounded-xl object-cover mb-5"
       src={`/images/productos/${productoEncontrado?.image}`}
       alt={productoEncontrado?.nombre}
@@ -48,6 +52,5 @@ const productoEncontrado = productos.find(
     >
   </div>
   <SelectorCategoriasModulo />
-    <CategoriaHome categoria="Granos"/>
-
+  <CategoriaHome categoria="Granos" />
 </PrincipalLayaout>
