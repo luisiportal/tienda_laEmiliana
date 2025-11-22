@@ -2,14 +2,29 @@
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta property="og:title" content={title + "| La Emiliana"} />
+    <meta property="og:url" content="https://la-emiliana.onrender.com" />
+
+    <meta
+      name="title"
+      content={`${title === "Inicio" ? "La Emiliana" : `${title} | La Emiliana`} `}
+    />
+    <meta name="generator" content={description} />
+    <title>{title} | La Emiliana</title>
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
     <meta name="generator" content="{Astro.generator}" />
   </head>
   <body>

@@ -21,7 +21,7 @@ const productoEncontrado = productos.find(
 );
 ---
 
-<PrincipalLayaout>
+<PrincipalLayaout title={productoEncontrado?.nombre ?? ""} description={productoEncontrado?.description ?? ""}>
   <section class="bg-neutral-200 p-3 mt-5">
     <img
       class="w-full h-full rounded-xl object-cover mb-5"

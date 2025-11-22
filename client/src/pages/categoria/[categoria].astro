@@ -22,7 +22,7 @@ const productosCategoria = productos.filter(
 );
 
 ---
-<PrincipalLayaout>
+<PrincipalLayaout title={categoria} description={`Productos ${categoria}`}>
   <section class="flex gap-5 flex-wrap m-3">
     {productosCategoria.map((producto => <ProductoCard producto={producto} css='w-full'/>))}
   </section>
