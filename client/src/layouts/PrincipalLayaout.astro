@@ -1,4 +1,5 @@
 ---
+import BarraCarrito from "../components/barraCarrito/BarraCarrito";
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
@@ -30,7 +31,10 @@ const { title, description } = Astro.props as Props;
     <meta name="generator" content="{Astro.generator}" />
   </head>
   <body>
-    <Header />
-    <slot />
+    <section class="h-screen">
+      <Header />
+      <slot />
+      <BarraCarrito client:visible />
+    </section>
   </body>
 </html>

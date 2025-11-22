@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import { useCarritoStore } from "../../stores/carritoStore";
-import type { Carrito } from "../../types/General.type";
-import { readLocalStorage } from "../../utils/useLocalStorage";
+
 import CardCarrito from "./CardCarrito";
 import EnviarPedido from "./EnviarPedido";
+import { useCargarCarrito } from "../../hooks/useCargarCarrito";
 
 const CarritoMap = () => {
-  const { carrito, setCarrito } = useCarritoStore();
-  const carritoGuardado = readLocalStorage("carrito") as Carrito;
-
-  useEffect(() => {
-    carritoGuardado.total &&
-      carritoGuardado.total > 0 &&
-      setCarrito(carritoGuardado);
-  }, []);
+  const { carrito } = useCarritoStore();
 
   return (
     <section className="flex flex-col justify-center">
@@ -32,11 +24,11 @@ const CarritoMap = () => {
           Total a Pagar
         </h2>
         <div className="flex justify-between">
-          <h2 className="font-semibold">Total a pagar :</h2> <h2 className="font-bold text-xl">{carrito.total} USD</h2>
+          <h2 className="font-semibold">Total a pagar :</h2>{" "}
+          <h2 className="font-bold text-xl">{carrito.total} USD</h2>
         </div>
       </section>
-
-    <EnviarPedido carrito={carrito}/>
+      <EnviarPedido carrito={carrito} />
     </section>
   );
 };
