@@ -5,6 +5,7 @@ export type Producto = {
   image: string;
   precio: number;
   categoria: string;
+  alias:string;
 };
 
 export type Categoria = {
@@ -12,4 +13,5 @@ export type Categoria = {
   nombre: string;
   description:string;
   image: string;
+  alias:string;
 };

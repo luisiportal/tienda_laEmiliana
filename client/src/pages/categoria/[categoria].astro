@@ -3,10 +3,11 @@ import { categorias } from '../../categorias';
 import ProductoCard from '../../components/categoriasHome/ProductoCard.astro';
 import PrincipalLayaout from '../../layouts/PrincipalLayaout.astro';
 import { productos } from '../../productos';
+import { slugify } from '../../utils/slugify';
 
 export function getStaticPaths() {
   return categorias.map((c) => ({
-    params: { categoria: c.nombre },
+    params: { categoria: c.alias },
   }));
 }
 
@@ -16,13 +17,15 @@ interface Props {
 }
 
 const { categoria } = Astro.params;
+console.log(categoria);
+
 
 const productosCategoria = productos.filter(
-  (item) => item.categoria === categoria
+  (item) => slugify(item.categoria) === categoria
 );
 
 ---
-<PrincipalLayaout title={categoria} description={`Productos ${categoria}`}>
+<PrincipalLayaout title={productosCategoria[0]?.categoria} description={`Productos ${productosCategoria[0]?.categoria}`}>
   <section class="flex gap-5 flex-wrap m-3">
     {productosCategoria.map((producto => <ProductoCard producto={producto} css='w-full'/>))}
   </section>

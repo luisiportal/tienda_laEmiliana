@@ -9,7 +9,7 @@ interface Props {
 const { producto, css = "w-40" } = Astro.props as Props;
 ---
 
-<a class={`bg-neutral-200 rounded-xl p-1 ${css}`} href={`/productos/${producto.id}`}
+<a class={`bg-neutral-200 rounded-xl p-1 ${css}`} href={`/productos/${producto.alias}`}
   ><section >
     <img
       class="w-full h-40 rounded-xl object-cover"

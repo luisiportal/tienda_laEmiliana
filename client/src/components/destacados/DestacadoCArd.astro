@@ -8,7 +8,7 @@ interface Props {
 const { producto } = Astro.props as Props;
 ---
 
-<a href={`/productos/${producto.id}`}><div class="bg-neutral-200 p-1 rounded-xl w-72">
+<a href={`/productos/${producto.alias}`}><div class="bg-neutral-200 p-1 rounded-xl w-72">
   <img
     class="w-full h-40 rounded-xl object-cover"
     src={`images/productos/${producto.image}`}
