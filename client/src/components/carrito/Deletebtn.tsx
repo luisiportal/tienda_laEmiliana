@@ -10,7 +10,7 @@ const Deletebtn = ({id}:{id:number}) => {
    setCarrito({ productos:productosRestantes, total:totalCarrito({productos:productosRestantes}) });
   };
   return (
-    <button onClick={()=>deleteProduct(id)} className="absolute top-2 right-2">
+    <button title="Eliminar" onClick={()=>deleteProduct(id)} className="absolute top-2 right-2">
       <img
         className="size-5 rounded-xl object-cover cursor-pointer"
         src="/svg/trash.svg"
