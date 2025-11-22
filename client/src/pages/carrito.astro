@@ -1,8 +1,15 @@
 ---
 import CarritoMap from "../components/carrito/CarritoMap";
+import TituloModulo from "../components/DS/TituloModulo.astro";
 import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
 ---
 
 <PrincipalLayaout title="Carrito de Compras" description="">
+  <div class="relative ml-1 mt-5" >
+     <h2 class="ml-1 font-bold text-2xl">Carrito de Compras</h2>
+    <div class="-z-10 bg-green-500 w-28 h-10 absolute top-0  rounded-br-xl rounded-tr-xl overflow-visible">
+     
+    </div>
+  </div>
   <CarritoMap client:visible />
 </PrincipalLayaout>
