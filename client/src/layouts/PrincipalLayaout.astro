@@ -16,8 +16,8 @@ const { title, description } = Astro.props as Props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta property="og:title" content={title + "| La Emiliana"} />
-    <meta property="og:url" content="https://la-emiliana.onrender.com" />
+    <meta property="og:title" content={`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `} />
+    <meta property="og:url" content="https://www.tiendalaemiliana.com/" />
     <link
       rel="icon"
       type="image/png"
@@ -38,11 +38,11 @@ const { title, description } = Astro.props as Props;
       content={`${title === "Inicio" ? "La Emiliana" : `${title} | La Emiliana`} `}
     />
     <meta name="generator" content={description} />
-    <ClientRouter />
+  
     <title>{`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `}</title>
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
-    <meta name="generator" content="{Astro.generator}" />
+      <ClientRouter />
   </head>
   <body>
     <section class="h-screen">
