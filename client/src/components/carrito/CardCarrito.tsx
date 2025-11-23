@@ -1,35 +1,8 @@
 import type { CartItem } from "../../types/General.type";
-import { useCarritoStore } from "../../stores/carritoStore";
 import Deletebtn from "./Deletebtn";
+import MasMenosBTN from "./MasMenosBTN";
 
-const CardCarrito = ({
-  item,
-  productos,
-}: {
-  item: CartItem;
-  productos: CartItem[];
-}) => {
-  const { setCarrito, carrito } = useCarritoStore();
-  const index = productos.indexOf(item);
-  const increase = () => {
-    productos[index] = {
-      ...item,
-      cantidad: item.cantidad + 1,
-    };
-    setCarrito({ productos });
-  };
-
-  const decrease = () => {
-    const cantidad = item.cantidad - 1;
-    if (item.cantidad > 1) {
-      productos[index] = {
-        ...item,
-        cantidad,
-      };
-      setCarrito({ productos });
-    }
-  };
-
+const CardCarrito = ({ item }: { item: CartItem }) => {
   return (
     <div className="relative bg-neutral-200 rounded-xl p-3 flex gap-1">
       <Deletebtn id={item.id} />
@@ -52,25 +25,7 @@ const CardCarrito = ({
               USD
             </span>
           </h2>
-          <div className="flex gap-4 items-center">
-            <button
-              onClick={() => decrease()}
-              className="bg-neutral-400 rounded-xl size-8 font-bold text-2xl"
-              title="Quitar"
-            >
-              {" "}
-              -
-            </button>
-            <h2 className="font-semibold">{item.cantidad}</h2>
-            <button
-              onClick={() => increase()}
-              className="bg-green-500 rounded-xl  size-8 font-bold text-2xl"
-              title="Incrementar"
-            >
-              {" "}
-              +
-            </button>
-          </div>
+          <MasMenosBTN id={item.id} />
         </div>
       </div>
     </div>

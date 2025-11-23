@@ -1,8 +1,11 @@
 ---
+import AddToCart from "../../components/categoriasHome/AddToCart";
 import CategoriaHome from "../../components/categoriasHome/CategoriaHome.astro";
 import SelectorCategoriasModulo from "../../components/selectorCategorias/SelectorCategoriasModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import { productos } from "../../productos";
+import type { CartItem, Producto } from "../../types/General.type";
+import MasMenosBTN from "../../components/carrito/MasMenosBTN";
 
 export function getStaticPaths() {
   return productos.map((c) => ({
@@ -43,13 +46,9 @@ const productoEncontrado = productos.find(
     <p>{productoEncontrado?.description}</p>
   </section>
   <div class="flex justify-center items-center gap-5 mt-5">
-    <button class="bg-green-500 text-white font-bold text-2xl rounded-xl p-2"
-      >Agregar</button
-    >
-    <button class="bg-neutral-500 size-12 rounded-xl">-</button>
-    <button class="bg-green-500 size-12 rounded-xl"
-      ><h2 class="text-white text-5xl">+</h2></button
-    >
+    <AddToCart client:visible producto={productoEncontrado as Producto} />
+
+    <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
   </div>
   <SelectorCategoriasModulo />
   <CategoriaHome categoria="Granos" />

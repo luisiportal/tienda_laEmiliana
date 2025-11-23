@@ -31,4 +31,24 @@ export const categorias = [
     image: "combo1.jpg",
     alias: "aceites",
   },
+  {
+    id: 6,
+    nombre: "Destacados",
+    image: "combo1.jpg",
+    alias: "destacados",
+  },
+   {
+    id: 7,
+    nombre: "Lácteos",
+    image: "combo1.jpg",
+    alias: "lacteos",
+  },  {
+    id: 8,
+    nombre: "Varios",
+    image: "combo1.jpg",
+    alias: "varios",
+  },
+  
+
+  
 ] as Categoria[];

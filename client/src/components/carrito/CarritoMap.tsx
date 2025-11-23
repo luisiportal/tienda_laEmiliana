@@ -12,11 +12,7 @@ const CarritoMap = () => {
       {" "}
       <div className="flex flex-col gap-3 m-3 mt-5">
         {carrito?.productos?.map((item) => (
-          <CardCarrito
-            item={item}
-            key={item.id}
-            productos={carrito.productos}
-          />
+          <CardCarrito item={item} key={item.id} />
         ))}
       </div>
       <section className="bg-neutral-200 rounded-xl p-3 mx-3 h-60">

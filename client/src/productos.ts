@@ -1,23 +1,32 @@
 import type { Producto } from "./types/General.type";
 
+const usd = 415;
+const margen = 0.3; // 30%
+
+const precioFinal = (costo: number) => {
+  const precioFinal = costo / (1 - margen);
+  return (precioFinal / usd);
+};
+
 export const productos: Producto[] = [
   {
     id: 1,
-    nombre: "Combo1",
-    description: "2 x chocolate ,1x Pollo 10 lb",
-    precio: 80,
-    image: "combo1.jpg",
+    nombre: "Flan de Leche",
+    description:
+      "Exquisito Flan de Leche elaborado a base de huevos, leche y azúcar.",
+    precio: 4.99,
+    image: "flan.jpeg",
     categoria: "Destacados",
-    alias: "combo1",
+    alias: "flan-de-leche",
   },
   {
     id: 2,
-    nombre: "Combo2",
-    precio: 40,
+    nombre: "Aceite 1 Litro",
+    precio: 2.6,
     description: "",
-    image: "combo2.jpg",
-    categoria: "Destacados",
-    alias: "combo2",
+    image: "haysa1l.jpg",
+    categoria: "Varios",
+    alias: "aceite",
   },
   {
     id: 3,
@@ -39,23 +48,23 @@ export const productos: Producto[] = [
   },
   {
     id: 5,
-    nombre: "Combo2",
+    nombre: "Leche 1KG",
     description: "",
 
-    precio: 40,
-    image: "combo2.jpg",
-    categoria: "Carnícos",
-    alias: "combo2",
+    precio: 7.99,
+    image: "leche1kg.jpg",
+    categoria: "Lácteos",
+    alias: "leche",
   },
   {
     id: 6,
-    nombre: "Combo2",
-    precio: 40,
-    description: "",
+    nombre: "Huevos (30)",
+    precio: 7.99,
+    description: "30 Huevos",
 
-    image: "combo2.jpg",
-    categoria: "Carnícos",
-    alias: "combo2",
+    image: "huevos.webp",
+    categoria: "Destacados",
+    alias: "huevos",
   },
   {
     id: 7,
@@ -76,5 +85,65 @@ export const productos: Producto[] = [
     image: "combo2.jpg",
     categoria: "Granos",
     alias: "combo2",
+  },
+  {
+    id: 9,
+    nombre: "Azúcar",
+    precio: 1.99,
+    description: "Paquetico sellado de azúcar de 1kg",
+
+    image: "azucar.jpg",
+    categoria: "Varios",
+    alias: "azucar",
+  },
+  {
+    id: 10,
+    nombre: "Arroz",
+    precio: 1.7,
+    description: "Paquetico sellado de arroz de 1kg",
+
+    image: "arroz.jpg",
+    categoria: "Varios",
+    alias: "arroz",
+  },
+  {
+    id: 11,
+    nombre: "Malta Perla",
+    precio: 0.9,
+    description: "Malta Perla producida en la Cervecería Bucanero en Holguín",
+
+    image: "maltaperla.jpg",
+    categoria: "Líquidos",
+    alias: "malta-perla",
+  },
+  {
+    id: 12,
+    nombre: "Spaguettis",
+    precio: 0.9,
+    description: "Malta Perla producida en la Cervecería Bucanero en Holguín",
+
+    image: "spaguettis500.jpg",
+    categoria: "Varios",
+    alias: "spaguettis",
+  },
+  {
+    id: 13,
+    nombre: "Leche Condensada",
+    precio: 1.5,
+    description: "Latica de leche condensada 390 g",
+
+    image: "Leche-Condensada-390g.jpg",
+    categoria: "Lácteos",
+    alias: "leche-condensada",
+  },
+  {
+    id: 14,
+    nombre: "Leche Condensada Hervida",
+    precio: 1.80,
+    description: "Latica de leche condensada hervida casera 390 g",
+
+    image: "lechehervida.jpg",
+    categoria: "Lácteos",
+    alias: "leche-condensada-hervida",
   },
 ];

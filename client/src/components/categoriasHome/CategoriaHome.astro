@@ -4,7 +4,6 @@ import TituloModulo from "../DS/TituloModulo.astro";
 import ProductoCard from "./ProductoCard.astro";
 import { slugify } from "../../utils/slugify.ts";
 
-
 interface Props {
   categoria: string;
 }
@@ -14,9 +13,27 @@ const productosCategoria = productos.filter(
   (item) => item.categoria === categoria
 );
 
+const impar = (index: number) => {
+  if (productosCategoria.length % 2 !== 0) {
+    const ultimo= productosCategoria.length -1
+    return ultimo === index ? "w-full mx-2" : "w-40";
+  }
+  else{
+    return 'w-40'
+  }
+};
 ---
 
 <TituloModulo titulo={categoria} alias={slugify(categoria)} />
 <section class="flex justify-center gap-3 flex-wrap">
-  {productosCategoria.map((producto) => <ProductoCard producto={producto} />)}
+  {
+    productosCategoria.map((producto,index) => (
+      <ProductoCard
+        producto={producto}
+        css={`
+          ${impar(index)}
+        `}
+      />
+    ))
+  }
 </section>
