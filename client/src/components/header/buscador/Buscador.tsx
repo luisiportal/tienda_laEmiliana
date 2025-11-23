@@ -15,7 +15,7 @@ const Buscador = () => {
     );
 
     setEncontrados(filtrados);
-     setShow(true);
+    setShow(true);
   };
 
   return (
@@ -33,13 +33,18 @@ const Buscador = () => {
       </button>
       {show && (
         <section className="z-50 absolute top-12 -left-28 bg-neutral-200/80 backdrop-blur-xs  w-screen h-screen rounded-xl p-2 flex flex-col overflow-visible">
-          <button className="size-6 absolute top-2 right-2 cursor-pointer" onClick={() => setShow(false)} title="Cerrar">
+          <button
+            className="size-6 absolute top-2 right-2 cursor-pointer"
+            onClick={() => setShow(false)}
+            title="Cerrar"
+          >
             <img src="/svg/close.svg" alt="Cerrar" />
           </button>
-          { encontrados.length === 0 && "No tenemos en este momento el producto buscado"}
+          {encontrados.length === 0 &&
+            "No tenemos en este momento el producto buscado"}
           {encontrados.map((encontrado) => (
             <a key={encontrado.id} href={`/productos/${encontrado.alias}`}>
-            <h2 className="font-bold">  {encontrado.nombre}</h2>
+              <h2 className="font-bold"> {encontrado.nombre}</h2>
             </a>
           ))}
         </section>

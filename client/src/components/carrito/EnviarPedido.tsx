@@ -1,4 +1,3 @@
-import React from "react";
 import type { Carrito } from "../../types/General.type";
 
 const EnviarPedido = ({ carrito }: { carrito: Carrito }) => {

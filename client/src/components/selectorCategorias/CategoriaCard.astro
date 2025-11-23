@@ -8,7 +8,11 @@ interface Props {
 const { categoria } = Astro.props as Props;
 ---
 
-<a href={`/categoria/${categoria.alias}`} title={categoria.nombre}>
+<a
+  class="size-20"
+  href={`/categoria/${categoria.alias}`}
+  title={categoria.nombre}
+>
   <img
     loading="lazy"
     class="size-20 rounded-xl object-cover"

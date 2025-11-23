@@ -17,10 +17,11 @@ const { producto } = Astro.props as Props;
     />
     <div class="flex items-center justify-between p-2">
       <h2 class="font-bold text-3xl flex items-center gap-1">
-        {producto.precio}
+        {producto.precio.toFixed(2)}
         <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
       </h2>
-      <button class="bg-green-500 rounded-xl p-2 font-bold text-white cursor-pointer"
+      <button
+        class="bg-green-500 rounded-xl p-2 font-bold text-white cursor-pointer"
         >Comprar</button
       >
     </div>

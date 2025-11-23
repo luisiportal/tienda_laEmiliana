@@ -24,4 +24,11 @@ export type Categoria = {
   alias: string;
 };
 
+export type Entrega ={
+  ordenante:string;
+  beneficiario:string;
+  direccion:string;
+  tel_beneficiario:string;
+}
+
 

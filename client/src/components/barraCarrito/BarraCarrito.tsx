@@ -15,7 +15,7 @@ const BarraCarrito = () => {
       <div>
         {" "}
         <h4 className="text-xs font-light -mb-2">Total Productos</h4>
-        <h2 className="font-bold text-xl">{carrito.total} USD</h2>
+        <h2 className="font-bold text-xl">{carrito.total?.toFixed(2)} USD</h2>
       </div>
     </a>
   );
