@@ -16,8 +16,24 @@ const { title, description } = Astro.props as Props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta property="og:title" content={`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `} />
+    <meta
+      property="og:title"
+      content={`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `}
+    />
+    <meta name="description" content={description} />
     <meta property="og:url" content="https://www.tiendalaemiliana.com/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.tiendalaemiliana.com/images/laemiliana_logo.png"
+    />
+    <meta property="og:description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="La Emiliana" />
+    <meta
+      name="keywords"
+      content="alimentos, bebidas, tienda online, La Emiliana,pollo,huevo,aceite"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -37,12 +53,15 @@ const { title, description } = Astro.props as Props;
       name="title"
       content={`${title === "Inicio" ? "La Emiliana" : `${title} | La Emiliana`} `}
     />
-    <meta name="generator" content={description} />
-  
-    <title>{`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `}</title>
+
+    <title>
+      {
+        `${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `
+      }
+    </title>
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
-      <ClientRouter />
+    <ClientRouter />
   </head>
   <body>
     <section class="h-screen">
