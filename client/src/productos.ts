@@ -53,7 +53,7 @@ export const productos: Producto[] = [
 
     precio: 7.99,
     image: "leche1kg.jpg",
-    categoria: "Lácteos",
+    categoria: "noLácteos",
     alias: "leche",
   },
   {
@@ -73,7 +73,7 @@ export const productos: Producto[] = [
     description: "",
 
     image: "combo2.jpg",
-    categoria: "Granos",
+    categoria: "agotadoGranos",
     alias: "frijoles-1-kg",
   },
   {
@@ -145,5 +145,25 @@ export const productos: Producto[] = [
     image: "lechehervida.jpg",
     categoria: "Lácteos",
     alias: "leche-condensada-hervida",
+  },
+    {
+    id: 15,
+    nombre: "Queso Gouda 1Lb",
+    precio: 5.1,
+    description: "Queso de primera calidad ideal para spaguettis , pizzas o bocaditos",
+
+    image: "queso-gouda_3.webp",
+    categoria: "Lácteos",
+    alias: "queso-gouda-1lb",
+  },
+     {
+    id: 15,
+    nombre: "Latica Pure Vima",
+    precio: 1.65,
+    description: "Pure Vima buen rendimiento y calidad",
+
+    image: "vima.webp",
+    categoria: "Varios",
+    alias: "pure-vima",
   },
 ];
