@@ -25,7 +25,7 @@ const productosCategoria = productos.filter(
 );
 
 ---
-<PrincipalLayaout title={productosCategoria[0]?.categoria} description={`Productos ${productosCategoria[0]?.categoria}`}>
+<PrincipalLayaout title={productosCategoria[0]?.categoria} description={`Productos ${productosCategoria[0]?.categoria}`} img_url={`/images/categorias/${slugify(categoria)}.jpg`}>
   <section class="flex gap-5 flex-wrap m-3">
     {productosCategoria.map((producto => <ProductoCard producto={producto} css='w-full'/>))}
   </section>

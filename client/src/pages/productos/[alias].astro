@@ -27,6 +27,9 @@ const productoEncontrado = productos.find(
 <PrincipalLayaout
   title={productoEncontrado?.nombre ?? ""}
   description={productoEncontrado?.description ?? ""}
+  img_url={`/images/productos${productoEncontrado?.image}`}
+
+
 >
   <section class="bg-neutral-200 p-3 mt-5">
     <img
