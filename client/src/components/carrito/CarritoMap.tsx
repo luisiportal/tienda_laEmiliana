@@ -25,8 +25,7 @@ const CarritoMap = () => {
           <h2 className="font-bold text-xl">{carrito.total?.toFixed(2)} USD</h2>
         </div>
       </section>
-      <Entregar />
-      <EnviarPedido carrito={carrito} />
+      <Entregar carrito={carrito} />
     </section>
   );
 };

@@ -25,6 +25,7 @@ export type Categoria = {
 };
 
 export type Entrega ={
+   [key: string]: any;
   ordenante:string;
   beneficiario:string;
   direccion:string;
