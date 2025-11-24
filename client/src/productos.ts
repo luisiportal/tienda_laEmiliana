@@ -14,7 +14,7 @@ export const productos: Producto[] = [
     nombre: "Flan de Leche",
     description:
       "Exquisito Flan de Leche elaborado a base de huevos, leche y azúcar.",
-    precio: 4.99,
+    precio: 5,
     image: "flan.jpeg",
     categoria: "Destacados",
     alias: "flan-de-leche",
