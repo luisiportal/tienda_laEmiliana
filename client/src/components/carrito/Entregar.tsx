@@ -19,7 +19,7 @@ const Entregar = ({ carrito }: { carrito: Carrito }) => {
       )
       .join("\n");
 
-   const texto = `🛒 Hola, quiero hacer el siguiente pedido:
+    const texto = `🛒 Hola, quiero hacer el siguiente pedido:
 
 📦 Pedido:
 ${mensaje}
@@ -31,63 +31,68 @@ ${mensaje}
 📞 Teléfono: ${values.tel_beneficiario}
 
 ✉️ Enviado por: ${values.ordenante}`;
-    
-const url = `https://wa.me/5358155198?text=${encodeURIComponent(texto)}`;
 
+    const url = `https://wa.me/5358155198?text=${encodeURIComponent(texto)}`;
 
     window.open(url, "_blank");
   };
 
   return (
-    <section className="bg-neutral-200 rounded-xl p-3 mx-3 min-h-40">
-      <h2 className="flex justify-center font-bold text-2xl mb-5">
-        Entregar a :
-      </h2>
-      <Formik initialValues={entrega}
-      validationSchema={entregaSchema}
-       onSubmit={onSubmit}>
-        {({ handleChange, errors, touched, values }) => (
-          <Form className="flex flex-col gap-5">
-            <InputText
-              values={values}
-              campo="beneficiario"
-              nombre="Nombre Beneficiario"
-              errors={errors}
-              handleChange={handleChange}
-              touched={touched}
-            />
-            <InputText
-              values={values}
-              campo="tel_beneficiario"
-              nombre="Teléfono Beneficiario"
-              errors={errors}
-              handleChange={handleChange}
-              touched={touched}
-            />
-            
-            <InputTextArea
-              campo="direccion"
-              nombre="Dirección"
-              values={values}
-              handleChange={handleChange}
-              errors={errors}
-              touched={touched}
-              rows={10}
-              placeholder="Ej: calle 5 # 11 entre 5 y 7 Reparto Vista Alegre"
-            />
-            <InputText
-              values={values}
-              campo="ordenante"
-              nombre="Enviado por:"
-              errors={errors}
-              handleChange={handleChange}
-              touched={touched}
-            />
-            <EnviarPedido />
-          </Form>
-        )}
-      </Formik>
-    </section>
+    <>
+      {" "}
+      <div id="entrega" className="relative ml-1 mt-5 flex">
+        <h2 className="ml-1 font-bold text-2xl">Entregar a:</h2>
+        <div className="-z-10 bg-green-500 w-16 h-10 absolute -top-1 rounded-br-xl rounded-tr-xl overflow-visible"></div>{" "}
+      </div>
+      <section className="bg-neutral-200 rounded-xl p-3 mx-3 min-h-40">
+        <Formik
+          initialValues={entrega}
+          validationSchema={entregaSchema}
+          onSubmit={onSubmit}
+        >
+          {({ handleChange, errors, touched, values }) => (
+            <Form className="flex flex-col gap-5">
+              <InputText
+                values={values}
+                campo="beneficiario"
+                nombre="Nombre Beneficiario"
+                errors={errors}
+                handleChange={handleChange}
+                touched={touched}
+              />
+              <InputText
+                values={values}
+                campo="tel_beneficiario"
+                nombre="Teléfono Beneficiario"
+                errors={errors}
+                handleChange={handleChange}
+                touched={touched}
+              />
+
+              <InputTextArea
+                campo="direccion"
+                nombre="Dirección"
+                values={values}
+                handleChange={handleChange}
+                errors={errors}
+                touched={touched}
+                rows={10}
+                placeholder="Ej: calle 5 # 11 entre 5 y 7 Reparto Vista Alegre"
+              />
+              <InputText
+                values={values}
+                campo="ordenante"
+                nombre="Enviado por:"
+                errors={errors}
+                handleChange={handleChange}
+                touched={touched}
+              />
+              <EnviarPedido />
+            </Form>
+          )}
+        </Formik>
+      </section>
+    </>
   );
 };
 

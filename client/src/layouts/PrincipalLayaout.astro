@@ -1,5 +1,6 @@
 ---
 import BarraCarrito from "../components/barraCarrito/BarraCarrito";
+import BarraPaginaCarrito from "../components/barraCarrito/BarraPaginaCarrito";
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const { title, description,img_url } = Astro.props as Props;
+const isCarrito = Astro.url.pathname === "/carrito";
 ---
 
 <!doctype html>
@@ -82,7 +84,11 @@ const { title, description,img_url } = Astro.props as Props;
     <section class="h-screen">
       <Header />
       <slot />
-      <BarraCarrito client:visible />
+    {isCarrito ? (
+  <BarraPaginaCarrito client:visible />
+) : (
+  <BarraCarrito client:visible />
+)}
     </section>
   </body>
 </html>

@@ -38,9 +38,9 @@ const InputTextArea = ({
         onChange={handleChange}
       />
 
-      {errors[campo] && touched[campo] && (
-        <div className="bg-red-500 w-fit text-white font-semibold text-sm  p-2 m-2 mb-0 rounded-lg">
-          <ErrorMessage name={campo} className="" />
+  {typeof errors[campo] === "string" && (
+        <div className="bg-red-500 w-fit text-white font-semibold text-sm p-2 m-2 mb-0 rounded-lg">
+          {errors[campo]}
         </div>
       )}
     </div>
