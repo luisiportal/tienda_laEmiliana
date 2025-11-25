@@ -1,6 +1,6 @@
 ---
+import BarraPaginaCarrito from "../components/barraCarrito/BarraPaginaCarrito";
 import CarritoMap from "../components/carrito/CarritoMap";
-import TituloModulo from "../components/DS/TituloModulo.astro";
 import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
 ---
 
@@ -17,4 +17,5 @@ import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
     </div>
   </div>
   <CarritoMap client:visible />
+  <BarraPaginaCarrito client:visible />
 </PrincipalLayaout>

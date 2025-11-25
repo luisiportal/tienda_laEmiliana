@@ -3,14 +3,20 @@ import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
 import DestacadoModulo from "../components/destacados/DestacadoModulo.astro";
 import CategoriaHome from "../components/categoriasHome/CategoriaHome.astro";
 import SelectorCategoriasModulo from "../components/selectorCategorias/SelectorCategoriasModulo.astro";
+import BarraCarrito from "../components/barraCarrito/BarraCarrito";
 ---
 
-<PrincipalLayaout title="Inicio" description="La Emiliana tienda de productos alimenticios" img_url="  favicons/web-app-manifest-512x512.png">
+<PrincipalLayaout
+  title="Inicio"
+  description="La Emiliana tienda de productos alimenticios"
+  img_url="  favicons/web-app-manifest-512x512.png"
+>
   <DestacadoModulo />
-  <CategoriaHome categoria="Carnícos"/>
-  <CategoriaHome categoria="Lácteos"/>
-  <CategoriaHome categoria="Varios"/>
-  <CategoriaHome categoria="Líquidos"/>
-  <SelectorCategoriasModulo/>
-  <CategoriaHome categoria="Granos"/>
+  <CategoriaHome categoria="Carnícos" />
+  <CategoriaHome categoria="Lácteos" />
+  <CategoriaHome categoria="Varios" />
+  <CategoriaHome categoria="Bebidas" />
+  <SelectorCategoriasModulo />
+  <CategoriaHome categoria="Granos" />
+    <BarraCarrito client:visible />
 </PrincipalLayaout>

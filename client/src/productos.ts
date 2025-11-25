@@ -5,7 +5,7 @@ const margen = 0.3; // 30%
 
 const precioFinal = (costo: number) => {
   const precioFinal = costo / (1 - margen);
-  return (precioFinal / usd);
+  return precioFinal / usd;
 };
 
 export const productos: Producto[] = [
@@ -71,9 +71,8 @@ export const productos: Producto[] = [
     nombre: "Frijoles 1 KG",
     precio: 2.7,
     description: "",
-
-    image: "combo2.jpg",
-    categoria: "agotadoGranos",
+    image: "frijoles1kg.jpg",
+    categoria: "Granos",
     alias: "frijoles-1-kg",
   },
   {
@@ -83,7 +82,7 @@ export const productos: Producto[] = [
     description: "",
 
     image: "combo2.jpg",
-    categoria: "Granos",
+    categoria: "agotadoGranos",
     alias: "combo2",
   },
   {
@@ -113,7 +112,7 @@ export const productos: Producto[] = [
     description: "Malta Perla producida en la Cervecería Bucanero en Holguín",
 
     image: "maltaperla.jpg",
-    categoria: "Líquidos",
+    categoria: "Bebidas",
     alias: "malta-perla",
   },
   {
@@ -139,24 +138,25 @@ export const productos: Producto[] = [
   {
     id: 14,
     nombre: "Leche Condensada Hervida",
-    precio: 1.80,
+    precio: 1.8,
     description: "Latica de leche condensada hervida casera 390 g",
 
     image: "lechehervida.jpg",
     categoria: "Lácteos",
     alias: "leche-condensada-hervida",
   },
-    {
+  {
     id: 15,
     nombre: "Queso Gouda 1Lb",
     precio: 5.1,
-    description: "Queso de primera calidad ideal para spaguettis , pizzas o bocaditos",
+    description:
+      "Queso de primera calidad ideal para spaguettis , pizzas o bocaditos",
 
     image: "queso-gouda_3.webp",
     categoria: "Lácteos",
     alias: "queso-gouda-1lb",
   },
-     {
+  {
     id: 16,
     nombre: "Latica Pure Vima",
     precio: 1.65,
@@ -165,5 +165,35 @@ export const productos: Producto[] = [
     image: "vima.webp",
     categoria: "Varios",
     alias: "pure-vima",
+  },
+  {
+    id: 17,
+    nombre: "Galletas Saltitacos",
+    precio: 3.37,
+    description: "El pqt trae 7 paqueticos ideales para las meriendas",
+
+    image: "saltitacos.jpg",
+    categoria: "Varios",
+    alias: "saltitacos",
+  },
+  {
+    id: 18,
+    nombre: "Jugo Manzana",
+    precio: 0.68,
+    description: "Jugo de Manzana 200 ml Badelli",
+
+    image: "manzanabadelli.jpg",
+    categoria: "Bebidas",
+    alias: "manzana-badelli",
+  },
+    {
+    id: 19,
+    nombre: "Cerveza Cristal",
+    precio: 0.75,
+    description: "La preferida de Cuba",
+
+    image: "cristal.jpg",
+    categoria: "Bebidas",
+    alias: "cerveza-cristal",
   },
 ];

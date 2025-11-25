@@ -1,9 +1,8 @@
 import { useCargarCarrito } from "../../hooks/useCargarCarrito";
 
 const BarraPaginaCarrito = () => {
-      const { carrito } = useCargarCarrito();
-      
-    
+  const { carrito } = useCargarCarrito();
+
   return (
     <div className="bg-green-500 h-14 sticky bottom-0 flex gap-3 items-center justify-center font-semibold">
       <a href="#pago">Pago</a>

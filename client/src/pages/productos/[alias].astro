@@ -6,6 +6,7 @@ import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import { productos } from "../../productos";
 import type { CartItem, Producto } from "../../types/General.type";
 import MasMenosBTN from "../../components/carrito/MasMenosBTN";
+import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
 
 export function getStaticPaths() {
   return productos.map((c) => ({
@@ -28,8 +29,6 @@ const productoEncontrado = productos.find(
   title={productoEncontrado?.nombre ?? ""}
   description={productoEncontrado?.description ?? ""}
   img_url={`/images/productos${productoEncontrado?.image}`}
-
-
 >
   <section class="bg-neutral-200 p-3 mt-5">
     <img
@@ -54,5 +53,11 @@ const productoEncontrado = productos.find(
     <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
   </div>
   <SelectorCategoriasModulo />
+  <CategoriaHome categoria="Carnícos" />
+  <CategoriaHome categoria="Lácteos" />
+  <CategoriaHome categoria="Varios" />
+  <CategoriaHome categoria="Líquidos" />
+
   <CategoriaHome categoria="Granos" />
+  <BarraCarrito client:visible />
 </PrincipalLayaout>
