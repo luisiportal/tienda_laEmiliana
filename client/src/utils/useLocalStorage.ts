@@ -28,7 +28,6 @@ export function readLocalStorage(key: string) {
       const response = localStorage.getItem(key) || "";
       return JSON.parse(response);
     } else {
-      console.log("No hay carrito guardado");
     }
   } catch (error) {
     console.error(error);

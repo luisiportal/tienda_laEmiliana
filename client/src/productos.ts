@@ -157,7 +157,7 @@ export const productos: Producto[] = [
     alias: "queso-gouda-1lb",
   },
      {
-    id: 15,
+    id: 16,
     nombre: "Latica Pure Vima",
     precio: 1.65,
     description: "Pure Vima buen rendimiento y calidad",

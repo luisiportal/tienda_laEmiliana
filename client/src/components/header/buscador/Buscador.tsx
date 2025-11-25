@@ -8,7 +8,6 @@ const Buscador = () => {
 
   const buscarProductos = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value.toLowerCase();
-    console.log(text);
 
     const filtrados = productos.filter((item) =>
       item.nombre.toLowerCase().includes(text)

@@ -9,13 +9,13 @@ interface Props {
 const { producto, css = "w-40" } = Astro.props as Props;
 ---
 
-<section class={`bg-neutral-200 rounded-xl p-1 ${css}`}>
+<section class={`bg-neutral-200 rounded-xl p-1 ${css} flex flex-col justify-between`}>
   <a href={`/productos/${producto.alias}`}>
     <img
       transition:name={`producto-${producto.id}`}
       transition:name={`productoDesta-${producto.id}`}
       transition:animate="initial"
-      class="w-full h-40 rounded-xl object-cover"
+      class="w-full aspect-square rounded-xl object-cover"
       src={`/images/productos/${producto.image}`}
       alt={producto.nombre}
     />

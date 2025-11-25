@@ -9,11 +9,12 @@ interface Props {
   title: string;
   description: string;
   img_url: string;
-
 }
 
-const { title, description,img_url } = Astro.props as Props;
+const { title, description, img_url } = Astro.props as Props;
 const isCarrito = Astro.url.pathname === "/carrito";
+console.log(Astro.url.pathname);
+
 ---
 
 <!doctype html>
@@ -71,24 +72,28 @@ const isCarrito = Astro.url.pathname === "/carrito";
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TL5MWF62BK"
     ></script>
     <script>
-     {` window.dataLayer = window.dataLayer || [];
+      {
+        ` window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
 
-      gtag("config", "G-TL5MWF62BK");`}
+      gtag("config", "G-TL5MWF62BK");`;
+      }
     </script>
   </head>
   <body>
-    <section class="h-screen">
+    <section class="h-screen max-w-sm mx-auto">
       <Header />
       <slot />
-    {isCarrito ? (
-  <BarraPaginaCarrito client:visible />
-) : (
-  <BarraCarrito client:visible />
-)}
+      {
+        isCarrito ? (
+          <BarraPaginaCarrito client:visible />
+        ) : (
+          <BarraCarrito client:visible />
+        )
+      }
     </section>
   </body>
 </html>

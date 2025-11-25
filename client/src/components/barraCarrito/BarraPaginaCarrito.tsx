@@ -2,7 +2,6 @@ import { useCargarCarrito } from "../../hooks/useCargarCarrito";
 
 const BarraPaginaCarrito = () => {
       const { carrito } = useCargarCarrito();
-      console.log(carrito);
       
     
   return (
