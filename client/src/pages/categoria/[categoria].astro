@@ -1,10 +1,10 @@
 ---
-import { categorias } from '../../categorias';
-import BarraCarrito from '../../components/barraCarrito/BarraCarrito';
-import ProductoCard from '../../components/categoriasHome/ProductoCard.astro';
-import PrincipalLayaout from '../../layouts/PrincipalLayaout.astro';
-import { productos } from '../../productos';
-import { slugify } from '../../utils/slugify';
+import { categorias } from "../../categorias";
+import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
+import ProductoCard from "../../components/categoriasHome/ProductoCard.astro";
+import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
+import { productos } from "../../productos";
+import { slugify } from "../../utils/slugify";
 
 export function getStaticPaths() {
   return categorias.map((c) => ({
@@ -12,23 +12,29 @@ export function getStaticPaths() {
   }));
 }
 
-
 interface Props {
   categoria: string;
 }
 
 const { categoria } = Astro.params;
 
-
 const productosCategoria = productos.filter(
   (item) => slugify(item.categoria) === categoria
 );
-
 ---
-<PrincipalLayaout title={productosCategoria[0]?.categoria} description={`Productos ${productosCategoria[0]?.categoria}`} img_url={`/images/categorias/${slugify(categoria)}.jpg`}>
-  <section class="flex gap-5 flex-wrap m-3">
-    {productosCategoria.map((producto => <ProductoCard producto={producto} css='w-full'/>))}
-  </section>
-    <BarraCarrito client:visible />
 
+<PrincipalLayaout
+  title={productosCategoria[0]?.categoria}
+  description={`Productos ${productosCategoria[0]?.categoria}`}
+  img_url={`/images/categorias/${slugify(categoria)}.jpg`}
+  url={`https://www.tiendalaemiliana.com/categoria/${slugify(categoria)}`}
+>
+  <section class="flex gap-5 flex-wrap m-3">
+    {
+      productosCategoria.map((producto) => (
+        <ProductoCard producto={producto} css="w-full" />
+      ))
+    }
+  </section>
+  <BarraCarrito client:visible />
 </PrincipalLayaout>

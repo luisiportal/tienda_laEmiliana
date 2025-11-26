@@ -28,7 +28,8 @@ const productoEncontrado = productos.find(
 <PrincipalLayaout
   title={productoEncontrado?.nombre ?? ""}
   description={productoEncontrado?.description ?? ""}
-  img_url={`/images/productos${productoEncontrado?.image}`}
+  img_url={`images/productos${productoEncontrado?.image}`}
+  url={`https://www.tiendalaemiliana.com/productos/${productoEncontrado?.alias}`}
 >
   <section class="bg-neutral-200 p-3 mt-5">
     <img

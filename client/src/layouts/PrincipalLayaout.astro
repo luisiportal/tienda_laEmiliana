@@ -1,5 +1,4 @@
 ---
-
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
@@ -8,9 +7,10 @@ interface Props {
   title: string;
   description: string;
   img_url: string;
+  url: string;
 }
 
-const { title, description, img_url } = Astro.props as Props;
+const { title, description, img_url,url } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -22,7 +22,7 @@ const { title, description, img_url } = Astro.props as Props;
       content={`${title === "Inicio" ? "La Emiliana | Alimentos y Bebidas" : `${title} | La Emiliana`} `}
     />
     <meta name="description" content={description} />
-    <meta property="og:url" content="https://www.tiendalaemiliana.com/" />
+    <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
@@ -83,8 +83,6 @@ const { title, description, img_url } = Astro.props as Props;
     <section class="h-screen max-w-sm mx-auto">
       <Header />
       <slot />
-
-    
     </section>
   </body>
 </html>
