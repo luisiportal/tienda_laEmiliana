@@ -3,6 +3,8 @@ import LogoLaEmiliana from "./Logo_LaEmiliana.astro";
 import HamburgerSvg from "../../SVG/HamburguerSVG.tsx";
 import LocationSVG from "../../SVG/LocationSVG";
 import Buscador from "./buscador/Buscador.tsx";
+import { categorias } from "../../categorias";
+
 ---
 
 <section class="bg-green-500 h-16 flex justify-between">
@@ -14,6 +16,57 @@ import Buscador from "./buscador/Buscador.tsx";
       <h2 class="font-bold">Holguin, Cuba</h2>
     </div>
   </div>
-  <button class="text-white m-2"><HamburgerSvg /></button>
+
+  <nav class="relative">
+    <!-- Checkbox hack -->
+    <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+    <!-- Botón hamburguesa -->
+    <label
+      for="menu-toggle"
+      class="flex flex-col justify-center gap-1 w-8 h-8 cursor-pointer z-50"
+    >
+      <span class="text-white absolute right-3 top-2"><HamburgerSvg /></span>
+    </label>
+
+    <!-- Overlay -->
+    <label
+      for="menu-toggle"
+      class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition peer-checked:opacity-100 peer-checked:pointer-events-auto"
+    ></label>
+
+    <!-- Panel lateral -->
+    <aside
+      class="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg -translate-x-full transition peer-checked:translate-x-0 z-40"
+    >
+      <div class="flex items-center justify-between p-4 border-b">
+        <h2 class="text-lg font-bold">Menú</h2>
+        <label for="menu-toggle" class="cursor-pointer text-xl">✕</label>
+      </div>
+      <ul class="p-4 space-y-2 ">
+        <li>
+          <a href="/" class="block px-2 py-1 rounded hover:bg-green-50"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a href="/carrito" class="block px-2 py-1 rounded hover:bg-green-50"
+            >Pagar</a
+          >
+        </li>
+      </ul>
+       <h2 class="ml-5 text-lg font-bold">Categorías</h2>
+      <ul class="ml-5">
+           <li></li>
+          {categorias.map((categoria => <a href={`/categoria/${categoria.alias}`} class="block px-2 py-1 rounded hover:bg-green-50"
+            >{categoria.nombre}</a>))}
+      
+        
+        
+        </li>
+
+      </ul>
+    </aside>
+  </nav>
 </section>
 <Buscador client:visible />
