@@ -196,4 +196,24 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "cerveza-cristal",
   },
+     {
+    id: 20,
+    nombre: "Jugo Guayaba",
+    precio: 0.68,
+    description: "Cajita de 200 ml",
+
+    image: "guayaba20ml.jpg",
+    categoria: "Bebidas",
+    alias: "jugo-guayaba-200ml",
+  },
+       {
+    id: 21,
+    nombre: "Galletas de leche",
+    precio: 2.1,
+    description: "Galleticas con sabor a leche incluye 8 paqueticos",
+
+    image: "milkRedonda.webp",
+    categoria: "Confituras",
+    alias: "galleticas-milk",
+  },
 ];
