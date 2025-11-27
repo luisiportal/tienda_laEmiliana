@@ -1,7 +1,13 @@
 import { useCarritoStore } from "../../stores/carritoStore";
 import type { Producto } from "../../types/General.type";
 
-const AddToCart = ({ producto }: { producto: Producto }) => {
+const AddToCart = ({
+  producto,
+  colorBtn="bg-green-500 text-white",
+}: {
+  producto: Producto;
+  colorBtn?: string;
+}) => {
   const { setCarrito, carrito } = useCarritoStore();
   const addProductToCart = (producto: Producto) => {
     setCarrito({
@@ -19,7 +25,7 @@ const AddToCart = ({ producto }: { producto: Producto }) => {
       className={` ${
         isAdded
           ? "bg-none border text-slate-800  pointer-events-none "
-          : "bg-green-500 text-white"
+          : `${colorBtn}`
       } h-full  font-bold rounded-xl p-2 transition-colors duration-1000 cursor-pointer flex justify-center items-center text-sm`}
     >
       {isAdded ? "Agregado" : "Agregar"}

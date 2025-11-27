@@ -50,7 +50,7 @@ const productoEncontrado = productos.find(
     <p>{productoEncontrado?.description}</p>
   </section>
   <div class="flex justify-center items-center gap-5 mt-5">
-    <AddToCart client:visible producto={productoEncontrado as Producto} />
+    <AddToCart  producto={productoEncontrado as Producto} colorBtn="bg-green-500" client:visible />
 
     <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
   </div>

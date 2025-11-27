@@ -2,6 +2,8 @@
 import { categorias } from "../../categorias";
 import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
 import ProductoCard from "../../components/categoriasHome/ProductoCard.astro";
+import TituloModulo from "../../components/DS/TituloModulo.astro";
+import Modulos from "../../components/Modulos.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import { productos } from "../../productos";
 import { slugify } from "../../utils/slugify";
@@ -21,14 +23,18 @@ const { categoria } = Astro.params;
 const productosCategoria = productos.filter(
   (item) => slugify(item.categoria) === categoria
 );
+const alias = slugify(categoria);
+const nombreCategoria = productosCategoria[0]?.categoria
 ---
 
 <PrincipalLayaout
   title={productosCategoria[0]?.categoria}
-  description={`Productos ${productosCategoria[0]?.categoria}`}
-  img_url={`/images/categorias/${slugify(categoria)}.jpg`}
-  url={`https://www.tiendalaemiliana.com/categoria/${slugify(categoria)}`}
+  description={`Productos ${nombreCategoria}`}
+  img_url={`/images/categorias/${alias}.jpg`}
+  url={`https://www.tiendalaemiliana.com/categoria/${alias}`}
 >
+<TituloModulo titulo={nombreCategoria} alias={alias} />
+
   <section class="flex gap-5 flex-wrap m-3">
     {
       productosCategoria.map((producto) => (
@@ -36,5 +42,7 @@ const productosCategoria = productos.filter(
       ))
     }
   </section>
+  <Modulos />
+
   <BarraCarrito client:visible />
 </PrincipalLayaout>
