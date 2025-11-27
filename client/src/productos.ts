@@ -186,7 +186,7 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "manzana-badelli",
   },
-    {
+  {
     id: 19,
     nombre: "Cerveza Cristal",
     precio: 0.75,
@@ -196,7 +196,7 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "cerveza-cristal",
   },
-     {
+  {
     id: 20,
     nombre: "Jugo Guayaba",
     precio: 0.68,
@@ -206,7 +206,7 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "jugo-guayaba-200ml",
   },
-       {
+  {
     id: 21,
     nombre: "Galletas de leche",
     precio: 2.1,
@@ -215,5 +215,23 @@ export const productos: Producto[] = [
     image: "milkRedonda.webp",
     categoria: "Confituras",
     alias: "galleticas-milk",
+  },
+  {
+    id: 22,
+    nombre: "Refresco Pomo 1.5 L",
+    precio: 2.2,
+    description: "Sabor Naranja",
+    image: "naranja1.5l.jpg",
+    categoria: "Bebidas",
+    alias: "pomo-naranja-1.5L",
+  },
+    {
+    id: 22,
+    nombre: "Galleticas Mantequilla",
+    precio: 2.1,
+    description: "Sabor mantequilla 8 paqueticos",
+    image: "buttercookies.jpg",
+    categoria: "Confituras",
+    alias: "galleticas-mantequilla",
   },
 ];
