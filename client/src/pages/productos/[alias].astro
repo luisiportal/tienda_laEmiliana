@@ -7,6 +7,7 @@ import { productos } from "../../productos";
 import type { CartItem, Producto } from "../../types/General.type";
 import MasMenosBTN from "../../components/carrito/MasMenosBTN";
 import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
+import Modulos from "../../components/Modulos.astro";
 
 export function getStaticPaths() {
   return productos.map((c) => ({
@@ -54,11 +55,6 @@ const productoEncontrado = productos.find(
     <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
   </div>
   <SelectorCategoriasModulo />
-  <CategoriaHome categoria="Carnícos" />
-  <CategoriaHome categoria="Lácteos" />
-  <CategoriaHome categoria="Varios" />
-  <CategoriaHome categoria="Líquidos" />
-
-  <CategoriaHome categoria="Granos" />
+  <Modulos/>
   <BarraCarrito client:visible />
 </PrincipalLayaout>

@@ -4,6 +4,7 @@ import DestacadoModulo from "../components/destacados/DestacadoModulo.astro";
 import CategoriaHome from "../components/categoriasHome/CategoriaHome.astro";
 import SelectorCategoriasModulo from "../components/selectorCategorias/SelectorCategoriasModulo.astro";
 import BarraCarrito from "../components/barraCarrito/BarraCarrito";
+import Modulos from "../components/Modulos.astro";
 ---
 
 <PrincipalLayaout
@@ -13,11 +14,6 @@ import BarraCarrito from "../components/barraCarrito/BarraCarrito";
   url="https://www.tiendalaemiliana.com"
 >
   <DestacadoModulo />
-  <CategoriaHome categoria="Carnícos" />
-  <CategoriaHome categoria="Lácteos" />
-  <CategoriaHome categoria="Confituras" />
-  <CategoriaHome categoria="Varios" />
-  <CategoriaHome categoria="Bebidas" />
-  <CategoriaHome categoria="Granos" />
-    <BarraCarrito client:visible />
+  <Modulos />
+  <BarraCarrito client:visible />
 </PrincipalLayaout>
