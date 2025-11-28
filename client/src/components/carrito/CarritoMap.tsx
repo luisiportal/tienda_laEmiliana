@@ -13,13 +13,16 @@ const CarritoMap = () => {
     <section id="productos" className="flex flex-col gap-5 justify-center">
       {" "}
       <div className="flex flex-col gap-3 m-3 mt-5">
-        {carrito.productos?.length ? (
+        {carrito.productos?.length === 0 ? "No has agregado ningun producto tadavía" :
+          carrito.productos?.length ? (
           carrito?.productos?.map((item) => (
             <CardCarrito item={item} key={item.id} />
           ))
         ) : (
           <Loader />
-        )}
+        )
+        } 
+      
       </div>
       <div className="relative ml-1 mt-5 flex">
         <h2 className="ml-1 font-bold text-2xl">Total a Pagar</h2>

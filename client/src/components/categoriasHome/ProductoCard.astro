@@ -1,6 +1,7 @@
 ---
 import type { Producto } from "../../types/General.type";
 import AddToCart from "./AddToCart";
+
 interface Props {
   producto: Producto;
   css?: string;
@@ -10,7 +11,7 @@ const { producto, css = "w-40" } = Astro.props as Props;
 ---
 
 <section
-  class={`bg-neutral-200 rounded-xl p-1 ${css} flex flex-col justify-between`}
+  class={`bg-neutral-200 rounded-xl p-1 ${css} flex flex-col justify-between relative`}
 >
   <a href={`/productos/${producto.alias}`}>
     <img
@@ -28,5 +29,7 @@ const { producto, css = "w-40" } = Astro.props as Props;
       <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
     </h2>
     <AddToCart producto={producto} client:visible />
+
+
   </div>
 </section>
