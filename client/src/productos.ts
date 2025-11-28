@@ -50,10 +50,9 @@ export const productos: Producto[] = [
     id: 5,
     nombre: "Leche 1KG",
     description: "",
-
     precio: 7.99,
-    image: "leche1kg.jpg",
-    categoria: "noLácteos",
+    image: "bartex.jpg",
+    categoria: "Lácteos",
     alias: "leche",
   },
   {
