@@ -119,7 +119,7 @@ export const productos: Producto[] = [
     id: 12,
     nombre: "Spaguettis",
     precio: 0.9,
-    description: "Malta Perla producida en la Cervecería Bucanero en Holguín",
+    description: "",
 
     image: "spaguettis500.jpg",
     categoria: "Varios",
@@ -226,7 +226,7 @@ export const productos: Producto[] = [
     alias: "pomo-naranja-1.5L",
   },
     {
-    id: 22,
+    id: 23,
     nombre: "Galleticas Mantequilla",
     precio: 2.1,
     description: "Sabor mantequilla 8 paqueticos",
@@ -235,3 +235,5 @@ export const productos: Producto[] = [
     alias: "galleticas-mantequilla",
   },
 ];
+
+

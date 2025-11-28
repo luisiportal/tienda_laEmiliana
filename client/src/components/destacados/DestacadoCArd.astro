@@ -11,12 +11,14 @@ const { producto } = Astro.props as Props;
 
 <div>
   <div class="bg-neutral-200 p-1 rounded-xl w-72">
-    <a href={`/productos/${producto.alias}`}></a>
-    <img
+    <a href={`/productos/${producto.alias}`}>
+       <img
       class="w-full h-40 rounded-xl object-cover"
       src={`/images/productos/${producto.image}`}
       alt={producto.nombre}
     />
+    </a>
+   
   </div>
   <div class="flex items-center justify-between p-2">
     <h2 class="font-bold text-3xl flex items-center gap-1">
