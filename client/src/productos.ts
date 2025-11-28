@@ -233,6 +233,24 @@ export const productos: Producto[] = [
     categoria: "Confituras",
     alias: "galleticas-mantequilla",
   },
+   {
+    id: 24,
+    nombre: "Nectar de Pera",
+    precio: 0.99,
+    description: "Jugo de Pera Enlatado 330 ml",
+    image: "lata-pera.webp",
+    categoria: "Bebidas",
+    alias: "jugo-lata-pera",
+  },
+     {
+    id: 25,
+    nombre: "Yogurt Fresa (4u)",
+    precio: 2.69,
+    description: "Pack 4 unidades potecitos de 100g",
+    image: "yogurt-fresa-vima.webp",
+    categoria: "Lácteos",
+    alias: "yogurt-fresa-vima",
+  },
 ];
 
 
