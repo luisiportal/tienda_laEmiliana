@@ -15,7 +15,7 @@ const { producto, css = "w-40" } = Astro.props as Props;
 >
   <a href={`/productos/${producto.alias}`}>
     <img
-      transition:name={`productoHome-${producto.id}`}
+      transition:name={`producto-${producto.id}`}
       transition:animate="initial"
       class="w-full aspect-square rounded-xl object-cover"
       src={`/images/productos/${producto.image}`}

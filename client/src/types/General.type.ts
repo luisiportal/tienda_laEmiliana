@@ -6,6 +6,7 @@ export type Producto = {
   precio: number;
   categoria: string;
   alias: string;
+  agotado:boolean
 };
 export type Carrito = {
   productos: CartItem[];

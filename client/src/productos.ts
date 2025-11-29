@@ -18,6 +18,7 @@ export const productos: Producto[] = [
     image: "flan.jpeg",
     categoria: "Destacados",
     alias: "flan-de-leche",
+    agotado: false,
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ export const productos: Producto[] = [
     image: "haysa1l.jpg",
     categoria: "Varios",
     alias: "aceite",
+    agotado: false,
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const productos: Producto[] = [
     image: "pollo10lb.jpg",
     categoria: "Carnícos",
     alias: "pollo-10-lb",
+    agotado: false,
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ export const productos: Producto[] = [
     image: "salchicha3kg.jpg",
     categoria: "Carnícos",
     alias: "salchicha-3kg",
+    agotado: false,
   },
   {
     id: 5,
@@ -54,16 +58,17 @@ export const productos: Producto[] = [
     image: "bartex.jpg",
     categoria: "Lácteos",
     alias: "leche",
+    agotado: false,
   },
   {
     id: 6,
     nombre: "Huevos (30)",
     precio: 9.99,
     description: "30 Huevos",
-
     image: "huevos.webp",
     categoria: "Destacados",
     alias: "huevos",
+    agotado: false,
   },
   {
     id: 7,
@@ -73,76 +78,77 @@ export const productos: Producto[] = [
     image: "frijoles1kg.jpg",
     categoria: "Granos",
     alias: "frijoles-1-kg",
+    agotado: false,
   },
   {
     id: 8,
     nombre: "Combo2",
     precio: 40,
     description: "",
-
     image: "combo2.jpg",
     categoria: "agotadoGranos",
     alias: "combo2",
+    agotado: false,
   },
   {
     id: 9,
     nombre: "Azúcar",
     precio: 1.99,
     description: "Paquetico sellado de azúcar de 1kg",
-
     image: "azucar.jpg",
     categoria: "Varios",
     alias: "azucar",
+    agotado: false,
   },
   {
     id: 10,
     nombre: "Arroz",
     precio: 1.7,
     description: "Paquetico sellado de arroz de 1kg",
-
     image: "arroz.jpg",
     categoria: "Varios",
     alias: "arroz",
+    agotado: false,
   },
   {
     id: 11,
     nombre: "Malta Perla",
     precio: 0.9,
     description: "Malta Perla producida en la Cervecería Bucanero en Holguín",
-
     image: "maltaperla.jpg",
     categoria: "Bebidas",
     alias: "malta-perla",
+    agotado: false,
   },
   {
     id: 12,
     nombre: "Spaguettis",
     precio: 0.9,
     description: "",
-
     image: "spaguettis500.jpg",
     categoria: "Varios",
     alias: "spaguettis",
+    agotado: false,
   },
   {
     id: 13,
     nombre: "Leche Condensada",
     precio: 1.5,
     description: "Latica de leche condensada 390 g",
-
     image: "Leche-Condensada-390g.jpg",
     categoria: "Lácteos",
     alias: "leche-condensada",
+    agotado: false,
   },
   {
     id: 14,
     nombre: "Leche Condensada Hervida",
     precio: 1.8,
     description: "Latica de leche condensada hervida casera 390 g",
-
     image: "lechehervida.jpg",
     categoria: "Lácteos",
     alias: "leche-condensada-hervida",
+    agotado: false,
   },
   {
     id: 15,
@@ -150,70 +156,70 @@ export const productos: Producto[] = [
     precio: 5.1,
     description:
       "Queso de primera calidad ideal para spaguettis , pizzas o bocaditos",
-
     image: "queso-gouda_3.webp",
     categoria: "Lácteos",
     alias: "queso-gouda-1lb",
+    agotado: false,
   },
   {
     id: 16,
     nombre: "Latica Pure Vima",
     precio: 1.65,
     description: "Pure Vima buen rendimiento y calidad",
-
     image: "vima.webp",
     categoria: "Varios",
     alias: "pure-vima",
+    agotado: false,
   },
   {
     id: 17,
     nombre: "Galletas Saltitacos",
     precio: 3.37,
     description: "El pqt trae 7 paqueticos ideales para las meriendas",
-
     image: "saltitacos.jpg",
     categoria: "Varios",
     alias: "saltitacos",
+    agotado: false,
   },
   {
     id: 18,
     nombre: "Jugo Manzana",
     precio: 0.68,
     description: "Jugo de Manzana 200 ml Badelli",
-
     image: "manzanabadelli.jpg",
     categoria: "Bebidas",
     alias: "manzana-badelli",
+    agotado: false,
   },
   {
     id: 19,
     nombre: "Cerveza Cristal",
     precio: 0.75,
     description: "La preferida de Cuba",
-
     image: "cristal.jpg",
     categoria: "Bebidas",
     alias: "cerveza-cristal",
+    agotado: false,
   },
   {
     id: 20,
     nombre: "Jugo Guayaba",
     precio: 0.68,
     description: "Cajita de 200 ml",
-
     image: "guayaba20ml.jpg",
     categoria: "Bebidas",
     alias: "jugo-guayaba-200ml",
+    agotado: false,
   },
   {
     id: 21,
     nombre: "Galletas de leche",
     precio: 2.1,
     description: "Galleticas con sabor a leche incluye 8 paqueticos",
-
     image: "milkRedonda.webp",
     categoria: "Confituras",
     alias: "galleticas-milk",
+    agotado: false,
   },
   {
     id: 22,
@@ -223,8 +229,9 @@ export const productos: Producto[] = [
     image: "naranja1.5l.jpg",
     categoria: "Bebidas",
     alias: "pomo-naranja-1.5L",
+    agotado: false,
   },
-    {
+  {
     id: 23,
     nombre: "Galleticas Mantequilla",
     precio: 2.1,
@@ -232,8 +239,9 @@ export const productos: Producto[] = [
     image: "buttercookies.jpg",
     categoria: "Confituras",
     alias: "galleticas-mantequilla",
+    agotado: false,
   },
-   {
+  {
     id: 24,
     nombre: "Nectar de Pera",
     precio: 0.99,
@@ -241,8 +249,9 @@ export const productos: Producto[] = [
     image: "lata-pera.webp",
     categoria: "Bebidas",
     alias: "jugo-lata-pera",
+    agotado: false,
   },
-     {
+  {
     id: 25,
     nombre: "Yogurt Fresa (4u)",
     precio: 2.69,
@@ -250,7 +259,6 @@ export const productos: Producto[] = [
     image: "yogurt-fresa-vima.webp",
     categoria: "Lácteos",
     alias: "yogurt-fresa-vima",
+    agotado: false,
   },
 ];
-
-
