@@ -80,16 +80,7 @@ export const productos: Producto[] = [
     alias: "frijoles-1-kg",
     agotado: false,
   },
-  {
-    id: 8,
-    nombre: "Combo2",
-    precio: 40,
-    description: "",
-    image: "combo2.jpg",
-    categoria: "agotadoGranos",
-    alias: "combo2",
-    agotado: false,
-  },
+ 
   {
     id: 9,
     nombre: "Azúcar",
