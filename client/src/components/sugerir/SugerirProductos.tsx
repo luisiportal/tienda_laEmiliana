@@ -7,18 +7,26 @@ const SugerirProductos = () => {
   const { setCarrito, carrito } = useCarritoStore();
   const [showMensaje, setShowMensaje] = useState(false);
 
-  const randomProducts = productos.filter(item => item.agotado ===false)
+  const randomProducts = productos
+    .filter((item) => item.agotado === false)
     .sort(() => Math.random() - 0.5) // desordena el array
     .slice(0, 5); // toma los primeros 5
 
+  const calcuCanrtidad = (producto: Producto) => {
+    const { precio } = producto;
+    if (precio >= 5) return 2;
+    if (precio >= 10) return 1;
+    if (precio <= 4) return 5;
+    if (precio <= 2) return 10;
+    return 5
+  };
+
   const productoConCantidad = randomProducts.map((producto) => ({
     ...producto,
-    cantidad: Math.floor(Math.random() * 5) + 1,
+    cantidad: Math.floor(Math.random() * calcuCanrtidad(producto)) + 1,
   })) as CartItem[];
 
   const addProductToCart = () => {
-    console.log(productoConCantidad);
-
     setCarrito({
       productos: productoConCantidad,
     });
