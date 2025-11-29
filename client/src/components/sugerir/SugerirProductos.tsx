@@ -23,7 +23,7 @@ const SugerirProductos = () => {
 
   const productoConCantidad = randomProducts.map((producto) => ({
     ...producto,
-    cantidad: Math.floor(Math.random() * calcuCanrtidad(producto)),
+    cantidad: Math.floor(Math.random() * calcuCanrtidad(producto)) + 1,
   })) as CartItem[];
 
   const addProductToCart = () => {
