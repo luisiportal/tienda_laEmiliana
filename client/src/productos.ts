@@ -262,6 +262,27 @@ export const productos: Producto[] = [
     alias: "pasta-bambu",
     agotado: false,
   },
+   {
+    id: 27,
+    nombre: "Galletas María",
+    precio: 1.1,
+    description: "Galleticas Dulces",
+    image: "galletasMaria.jpg",
+    categoria: "Confituras",
+    alias: "galletas-maria",
+    agotado: false,
+  },
+     {
+    id: 28,
+    nombre: "Peter Milano",
+    precio: 0.6,
+    description: "Peter Italiano",
+    image: "peter-milano.jpg",
+    categoria: "Confituras",
+    alias: "peter-milano",
+    agotado: false,
+  },
+
 
 
 ];
