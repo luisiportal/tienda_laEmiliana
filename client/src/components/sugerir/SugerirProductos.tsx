@@ -69,7 +69,7 @@ const SugerirProductos = () => {
       </section>{" "}
       <section
         className={`absolute z-50 m-2 bg-neutral-200 transition-all duration-700 rounded-xl p-2 ${
-          showMensaje ? " opacity-100" : "opacity-0"
+          showMensaje ? " opacity-100" : "opacity-0 hidden"
         }`}
       >
         <div className="flex gap-2 items-center">

@@ -252,4 +252,16 @@ export const productos: Producto[] = [
     alias: "yogurt-fresa-vima",
     agotado: false,
   },
+    {
+    id: 26,
+    nombre: "Pasta Dental Bambú",
+    precio: 1.23,
+    description: "100g sabor mentolado",
+    image: "pasta-bambu.webp",
+    categoria: "Aseo",
+    alias: "pasta-bambu",
+    agotado: false,
+  },
+
+
 ];
