@@ -22,7 +22,7 @@ const Buscador = () => {
       <div className="flex items-center border border-neutral-200 rounded-xl">
         <input
           onChange={(e) => buscarProductos(e)}
-          className="rounded-xl h-full pl-2 w-48"
+          className="rounded-xl h-full pl-2 w-52"
           type="text"
           placeholder="Buscar productos..."
         />
