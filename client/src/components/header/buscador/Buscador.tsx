@@ -27,9 +27,9 @@ const Buscador = () => {
           placeholder="Buscar productos..."
         />
       </div>
-      <button className="bg-green-500 size-10 rounded-xl flex justify-center items-center">
-        <img className="size-6" src="/svg/Search.svg" alt="Buscar" />
-      </button>
+      <a href="/carrito" className="bg-[#FFC20E] size-10 rounded-xl flex justify-center items-center">
+        <img className="size-6" src="/svg/Cart.svg" alt="Carrito" />
+      </a>
       {show && (
         <section className="z-50 absolute top-12 -left-28 bg-neutral-200/80 backdrop-blur-xs  w-screen h-screen rounded-xl p-2 flex flex-col overflow-visible">
           <button

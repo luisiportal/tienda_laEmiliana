@@ -8,7 +8,7 @@ const BarraPaginaCarrito = () => {
       <a href="#pago">Pago</a>
       <a
         href="#productos"
-        className="bg-white rounded-xl size-10 flex justify-center items-center"
+        className="bg-[#FFC20E] rounded-xl size-10 flex justify-center items-center"
       >
         <img className="size-8" src="/svg/Cart.svg" alt="Carrito" />
       </a>

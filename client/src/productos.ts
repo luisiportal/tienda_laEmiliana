@@ -219,7 +219,7 @@ export const productos: Producto[] = [
     description: "Sabor Naranja",
     image: "naranja1.5l.jpg",
     categoria: "Bebidas",
-    alias: "pomo-naranja-1.5L",
+    alias: "pomo-naranja",
     agotado: false,
   },
   {

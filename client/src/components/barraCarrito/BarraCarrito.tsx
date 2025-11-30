@@ -9,7 +9,7 @@ const BarraCarrito = () => {
         <h4 className="text-xs font-light -mb-2">Ver el</h4>
         <h2 className="font-bold text-xl">Carrito</h2>
       </div>
-      <button className="bg-white rounded-xl size-10 flex justify-center items-center">
+      <button className="bg-[#FFC20E] rounded-xl size-10 flex justify-center items-center">
         <img className="size-8" src="/svg/Cart.svg" alt="Carrito" />
       </button>
       <div>
