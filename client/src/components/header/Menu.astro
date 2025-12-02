@@ -1,0 +1,75 @@
+---
+import { categorias } from "../../categorias";
+import HamburgerSvg from "../../SVG/HamburguerSVG.tsx";
+import SugerirProductos from "../sugerir/SugerirProductos";
+---
+
+<nav class="relative">
+  <!-- Checkbox hack -->
+  <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+  <!-- Botón hamburguesa -->
+  <label
+    for="menu-toggle"
+    class="flex flex-col justify-center gap-1 w-8 h-8 cursor-pointer z-50"
+  >
+    <span class="text-white absolute right-3 top-2"><HamburgerSvg /></span>
+  </label>
+
+  <!-- Overlay -->
+  <label
+    for="menu-toggle"
+    class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition peer-checked:opacity-100 peer-checked:pointer-events-auto"
+  ></label>
+
+  <!-- Panel lateral -->
+  <aside
+    class="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg -translate-x-full transition peer-checked:translate-x-0 z-40"
+  >
+    <div class="flex items-center justify-between p-4 border-b">
+      <h2 class="text-lg font-bold">Menú</h2>
+      <label for="menu-toggle" class="cursor-pointer text-xl">✕</label>
+    </div>
+    <div class="p-5 mb-0 bg-neutral-100 rounded-xl m-1">
+      <h2 class="font-bold text-lg">Hola, ¿Necesitas ayuda?</h2>
+      <a
+        href="https://wa.me/5358155198"
+        class="font-semibold text-sm text-neutral-500"
+        >Pregúntame lo que quieras</a
+      >
+    </div>
+    <ul class="p-4 space-y-2 font-bold">
+      <li>
+        <a href="/" class="px-2 py-1 rounded hover:bg-green-50 flex gap-1">
+          <img class="size-6" src="/svg/home.svg" alt="Inicio" /> Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/carrito"
+          class="px-2 py-1 rounded hover:bg-green-50 flex gap-1"
+        >
+          <img class="size-6" src="/svg/credit.svg" alt="Pagar" />Pagar</a
+        >
+      </li>
+    </ul>
+    <h2 class="ml-5 text-lg font-bold">Categorías</h2>
+    <ul class="ml-5">
+      <li></li>
+      {
+        categorias.map((categoria) => (
+          <a
+            href={`/categoria/${categoria.alias}`}
+            class="flex gap-1 px-2 py-1 rounded hover:bg-green-50"
+          >
+           <img class="size-6" src="/svg/tag.svg" alt={categoria.nombre} /> {categoria.nombre}
+          </a>
+        ))
+      }
+    </ul>
+  <SugerirProductos client:only />
+  </aside>
+
+
+</nav>
+

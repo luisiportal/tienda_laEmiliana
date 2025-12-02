@@ -63,7 +63,7 @@ export const productos: Producto[] = [
   {
     id: 6,
     nombre: "Huevos (30)",
-    precio: 9.99,
+    precio: 8.80,
     description: "30 Huevos",
     image: "huevos.webp",
     categoria: "Destacados",
