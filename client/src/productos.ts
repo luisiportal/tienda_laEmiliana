@@ -331,6 +331,15 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "manzana-laestancia",
     agotado: false,
+  },    {
+    id: 34,
+    nombre: "Bolsa de Pan (10u)",
+    precio: 0.80,
+    description: "10 panes de bola",
+    image: "bolsa-pan.jpg",
+    categoria: "Varios",
+    alias: "bolsa-pan",
+    agotado: false,
   },
 
 
