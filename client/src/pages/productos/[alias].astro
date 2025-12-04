@@ -49,12 +49,22 @@ const productoEncontrado = productos.find(
     <h2 class="font-semibold text-neutral-400 text-sm">Descripción</h2>
     <p>{productoEncontrado?.description}</p>
   </section>
-  <div class="flex justify-center items-center gap-5 mt-5">
-    <AddToCart  producto={productoEncontrado as Producto} colorBtn="bg-green-500" client:visible />
+  {
+    productoEncontrado?.agotado ? (
+      "Producto Agotado "
+    ) : (
+      <div class="flex justify-center items-center gap-5 mt-5">
+        <AddToCart
+          producto={productoEncontrado as Producto}
+          colorBtn="bg-green-500"
+          client:visible
+        />
 
-    <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
-  </div>
+        <MasMenosBTN id={productoEncontrado?.id ?? 0} client:visible />
+      </div>
+    )
+  }
   <SelectorCategoriasModulo />
-  <Modulos/>
+  <Modulos />
   <BarraCarrito client:visible />
 </PrincipalLayaout>

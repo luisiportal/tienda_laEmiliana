@@ -63,7 +63,7 @@ export const productos: Producto[] = [
   {
     id: 6,
     nombre: "Huevos (30)",
-    precio: 8.80,
+    precio: 8.8,
     description: "30 Huevos",
     image: "huevos.webp",
     categoria: "Destacados",
@@ -80,7 +80,7 @@ export const productos: Producto[] = [
     alias: "frijoles-1-kg",
     agotado: false,
   },
- 
+
   {
     id: 9,
     nombre: "Azúcar",
@@ -109,7 +109,7 @@ export const productos: Producto[] = [
     image: "maltaperla.jpg",
     categoria: "Bebidas",
     alias: "malta-perla",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 12,
@@ -117,7 +117,7 @@ export const productos: Producto[] = [
     precio: 0.9,
     description: "",
     image: "spaguettis500.jpg",
-    categoria: "Varios",
+    categoria: "Pastas",
     alias: "spaguettis",
     agotado: false,
   },
@@ -252,7 +252,7 @@ export const productos: Producto[] = [
     alias: "yogurt-fresa-vima",
     agotado: false,
   },
-    {
+  {
     id: 26,
     nombre: "Pasta Dental Bambú",
     precio: 1.23,
@@ -262,7 +262,7 @@ export const productos: Producto[] = [
     alias: "pasta-bambu",
     agotado: false,
   },
-   {
+  {
     id: 27,
     nombre: "Galletas María",
     precio: 1.1,
@@ -272,7 +272,7 @@ export const productos: Producto[] = [
     alias: "galletas-maria",
     agotado: false,
   },
-     {
+  {
     id: 28,
     nombre: "Peter Milano",
     precio: 0.6,
@@ -282,7 +282,7 @@ export const productos: Producto[] = [
     alias: "peter-milano",
     agotado: false,
   },
-    {
+  {
     id: 29,
     nombre: "Detergente Polvo",
     precio: 0.9,
@@ -292,7 +292,7 @@ export const productos: Producto[] = [
     alias: "detergente-rayan",
     agotado: false,
   },
-    {
+  {
     id: 30,
     nombre: "Papel Sanitario",
     precio: 1.8,
@@ -302,7 +302,7 @@ export const productos: Producto[] = [
     alias: "papel-laexelencia",
     agotado: false,
   },
-{
+  {
     id: 31,
     nombre: "Jabón de Baño",
     precio: 0.55,
@@ -322,7 +322,7 @@ export const productos: Producto[] = [
     alias: "jabon-lavar-flash",
     agotado: false,
   },
-    {
+  {
     id: 33,
     nombre: "Jugo Manzana",
     precio: 0.68,
@@ -331,16 +331,35 @@ export const productos: Producto[] = [
     categoria: "Bebidas",
     alias: "manzana-laestancia",
     agotado: false,
-  },    {
+  },
+  {
     id: 34,
     nombre: "Bolsa de Pan (10u)",
-    precio: 0.80,
+    precio: 0.8,
     description: "10 panes de bola",
     image: "bolsa-pan.jpg",
     categoria: "Varios",
     alias: "bolsa-pan",
     agotado: false,
   },
-
-
+  {
+    id: 35,
+    nombre: "Coditos",
+    precio: 0.8,
+    description: "Paquete de 500g",
+    image: "coditos-doga.webp",
+    categoria: "Pastas",
+    alias: "coditos-doga",
+    agotado: false,
+  },
+  {
+    id: 36,
+    nombre: "Refresco Enlatado",
+    precio: 0.75,
+    description: "Sabores : Cola,Naranja,otros según disponibilidad",
+    image: "ritz-cola.jpg",
+    categoria: "Bebidas",
+    alias: "refresco-lata-ritz",
+    agotado: false,
+  },
 ];
