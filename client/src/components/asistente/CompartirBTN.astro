@@ -5,13 +5,15 @@ interface Props {
 const { alias } = Astro.props;
 ---
 
-<div class="absolute top-2 left-2 z-10"><iframe
-  src={`https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.tiendalaemiliana.com%2Fproductos%2F${alias}&layout&size&width=99&height=20&appId`}
-  width="99"
-  height="20"
-  style="border:none;overflow:hidden"
-  scrolling="no"
-  frameborder="0"
-  allowfullscreen="true"
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe></div>
+<div class="absolute top-1 left-2 z-10">
+  <button
+    onclick={`navigator.share({
+      title: 'La Emiliana',
+      text: 'Mira este producto de La Emiliana 👇',
+      url: 'https://www.tiendalaemiliana.com/productos/${alias}'
+    })`}
+    class="text-xs bg-neutral-100 rounded-lg p-1"
+  >
+    Compartir
+  </button>
+</div>
