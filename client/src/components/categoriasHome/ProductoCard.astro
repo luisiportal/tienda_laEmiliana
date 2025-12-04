@@ -14,7 +14,7 @@ const { producto, css = "w-40" } = Astro.props as Props;
 <section
   class={`bg-neutral-200 rounded-xl p-1 ${css} flex flex-col justify-between relative`}
 >
-<CompartirBTN alias={producto.alias}/>
+<CompartirBTN producto={producto}/>
   <a href={`/productos/${producto.alias}`}>
     <img
       transition:name={`producto-${producto.id}`}

@@ -1,15 +1,21 @@
 ---
+import type { Producto } from '../../types/General.type';
+
 interface Props {
-  alias: string;
+  producto: Producto;
 }
-const { alias } = Astro.props;
+const { producto } = Astro.props;
+const alias = producto.alias
 ---
 
 <div class="absolute top-1 left-2 z-10">
   <button
     onclick={`navigator.share({
       title: 'La Emiliana',
-      text: 'Mira este producto de La Emiliana 👇',
+      text: 'Mira este producto de La Emiliana una tienda online con entregas a la casa 👇
+      Precio : ${producto.precio}
+      Descripción : ${producto.description}
+      ',
       url: 'https://www.tiendalaemiliana.com/productos/${alias}'
     })`}
     class="text-xs bg-neutral-100 rounded-lg p-1"
