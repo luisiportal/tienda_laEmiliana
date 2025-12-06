@@ -248,7 +248,7 @@ export const productos: Producto[] = [
     precio: 2.69,
     description: "Pack 4 unidades potecitos de 100g",
     image: "yogurt-fresa-vima.webp",
-    categoria: "Lácteos",
+    categoria: "Destacados",
     alias: "yogurt-fresa-vima",
     agotado: false,
   },
