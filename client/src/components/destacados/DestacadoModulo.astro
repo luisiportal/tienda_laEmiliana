@@ -1,7 +1,8 @@
 ---
 import { productos } from "../../productos";
 import DestacadoCArd from "./DestacadoCArd.astro";
-const destacados = productos.filter((item) => item.categoria === "Destacados");
+const destacados = productos.filter((item) => item.categoria === "Destacados" && item.agotado === false
+);
 ---
 
 <section class="bg-green-500 p-2 mt-5 pr-0">
