@@ -1,18 +1,15 @@
 ---
 import { productos } from "../../productos";
+import { getRandomElements } from "../../utils/ramdom";
 import DestacadoCArd from "./DestacadoCArd.astro";
-const destacados = productos.filter((item) => item.categoria === "Destacados" && item.agotado === false
-);
+const tienen = productos.filter((item) => item.agotado === false);
+const destacados = getRandomElements(tienen, 3);
 ---
 
 <section class="bg-green-500 p-2 mt-5 pr-0">
   <div class="flex justify-between items-center p-2">
     <h2 class="font-bold text-2xl">Destacados</h2>
-    <a href="/categoria/destacados"
-      ><h2 class="text-xs">
-        Ver todos
-      </h2></a
-    >
+    <a href="/categoria/destacados"><h2 class="text-xs">Ver todos</h2></a>
   </div>
   <section class="flex gap-5 overflow-x-scroll w-full">
     <div class="flex gap-3 pb-3">

@@ -23,7 +23,7 @@ const AddToCart = ({
 
   return (
     <>
-     <div className={`${isAdded ?"opacity-100": "opacity-0"} transition-opacity duration-700 absolute top-5 right-6  bg-white/40 rounded-xl p-1`}>
+     <div className={`${isAdded ?"opacity-100": "opacity-0"} transition-opacity duration-700 absolute top-20 right-6  bg-white/40 rounded-xl p-1`}>
         {" "}
         <MasMenosBTN id={isAdded?.id ?? 0} />
       </div>
