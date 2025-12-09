@@ -76,7 +76,7 @@ ${mensaje}
                 handleChange={handleChange}
                 errors={errors}
                 touched={touched}
-                rows={10}
+                rows={4}
                 placeholder="Ej: calle 5 # 11 entre 5 y 7 Reparto Vista Alegre"
               />
               <InputText
