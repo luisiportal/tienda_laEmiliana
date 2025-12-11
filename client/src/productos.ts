@@ -18,7 +18,7 @@ export const productos: Producto[] = [
     image: "flan.jpeg",
     categoria: "Varios",
     alias: "flan-de-leche",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 2,
@@ -320,7 +320,7 @@ export const productos: Producto[] = [
     image: "jabon-lavar-flash.webp",
     categoria: "Aseo",
     alias: "jabon-lavar-flash",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 33,
