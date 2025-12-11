@@ -18,7 +18,7 @@ export const productos: Producto[] = [
     image: "flan.jpeg",
     categoria: "Varios",
     alias: "flan-de-leche",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 2,
