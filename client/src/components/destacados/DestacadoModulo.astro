@@ -1,9 +1,12 @@
 ---
 import { productos } from "../../productos";
+import type { Producto } from "../../types/General.type";
 import { getRandomElements } from "../../utils/ramdom";
 import DestacadoCArd from "./DestacadoCArd.astro";
 const tienen = productos.filter((item) => item.agotado === false);
-const destacados = getRandomElements(tienen, 3);
+const flan = productos.find((item) => item.nombre.includes("Flan")) as Producto;
+const ramdoms = getRandomElements(tienen, 2);
+const destacados = [flan, ...ramdoms];
 ---
 
 <section class="bg-green-500 p-2 mt-5 pr-0">
