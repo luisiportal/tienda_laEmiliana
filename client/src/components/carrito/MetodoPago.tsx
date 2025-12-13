@@ -8,17 +8,7 @@ const MetodoPago = () => {
       </div>
       <section className="bg-neutral-200 rounded-xl p-3 mx-3">
         <h2 className="font-bold"> Moneda: USD</h2>
-        <h2 className="flex gap-1 font-bold">
-          {" "}
-          Plataforma :{" "}
-          <span>
-            <img
-              className=" object-cover rounded-sm"
-              src="/images/zelle.png"
-              alt="Zelle"
-            />
-          </span>
-        </h2>
+      
         <p className="text-sm">
           Una vez recibido su pedido, le enviaremos el número de Zelle para que
           pueda realizar el pago.

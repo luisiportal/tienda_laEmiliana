@@ -13,7 +13,7 @@ const Entregar = ({ carrito }: { carrito: Carrito }) => {
     const mensaje = carrito?.productos
       ?.map(
         (p) =>
-          `• ${p.nombre} x${p.cantidad} = $${(p.precio * p.cantidad).toFixed(
+          `• ${p.cantidad} x ${p.nombre} = $${(p.precio * p.cantidad).toFixed(
             2
           )}`
       )
@@ -35,6 +35,7 @@ ${mensaje}
     const url = `https://wa.me/5358155198?text=${encodeURIComponent(texto)}`;
 
     window.open(url, "_blank");
+    localStorage.removeItem("carrito");
   };
 
   return (

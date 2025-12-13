@@ -11,7 +11,15 @@ const AddToCart = ({
   colorBtn?: string;
 }) => {
   const { setCarrito, carrito } = useCarritoStore();
+
+  const playSound = () => {
+    const audio = new Audio("/sounds/pop.mp3"); // ruta del archivo de sonido
+
+    audio.volume = 0.1;
+    audio.play();
+  };
   const addProductToCart = (producto: Producto) => {
+    playSound();
     setCarrito({
       productos: [...(carrito?.productos ?? []), { ...producto, cantidad: 1 }],
     });
@@ -23,7 +31,11 @@ const AddToCart = ({
 
   return (
     <>
-     <div className={`${isAdded ?"opacity-100": "opacity-0"} transition-opacity duration-700 absolute top-20 right-6  bg-white/40 rounded-xl p-1`}>
+      <div
+        className={`${
+          isAdded ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-700 absolute top-20 right-6  bg-white/40 rounded-xl p-1`}
+      >
         {" "}
         <MasMenosBTN id={isAdded?.id ?? 0} />
       </div>
