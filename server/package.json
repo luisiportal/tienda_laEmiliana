@@ -4,7 +4,13 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "serve": "php artisan serve",
+        "migrate":"php artisan migrate",
+    "server localhost" : "php -S localhost:8000 -t public",
+    "server LAPTOP" : "php -S 192.168.137.1:8000 -t public"
+
+
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
