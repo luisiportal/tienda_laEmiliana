@@ -280,7 +280,7 @@ export const productos: Producto[] = [
     image: "peter-milano.jpg",
     categoria: "Confituras",
     alias: "peter-milano",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 29,
