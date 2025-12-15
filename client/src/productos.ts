@@ -392,4 +392,14 @@ export const productos: Producto[] = [
     alias: "caja-cristal",
     agotado: false,
   },
+      {
+    id: 40,
+    nombre: "Caja Pollo 15 kg",
+    precio: 35.1,
+    description: "Encuentros de Pollo 33 LB",
+    image: "pollo-33.webp",
+    categoria: "Carnícos",
+    alias: "pollo-33",
+    agotado: false,
+  },
 ];
