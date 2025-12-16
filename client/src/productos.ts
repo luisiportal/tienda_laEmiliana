@@ -432,4 +432,14 @@ export const productos: Producto[] = [
     alias: "jugo-lata-manzana",
     agotado: false,
   },
+      {
+    id: 44,
+    nombre: "Ensalada Fría",
+    precio: 2.0,
+    description: "8 Bolas de Ensalada Fría",
+    image: "ensaladafria.jpg",
+    categoria: "Varios",
+    alias: "ensalada-fria",
+    agotado: false,
+  },
 ];
