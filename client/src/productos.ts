@@ -440,6 +440,6 @@ export const productos: Producto[] = [
     image: "ensaladafria.jpg",
     categoria: "Varios",
     alias: "ensalada-fria",
-    agotado: false,
+    agotado: true,
   },
 ];
