@@ -8,11 +8,20 @@ const MetodoPago = () => {
       </div>
       <section className="bg-neutral-200 rounded-xl p-3 mx-3">
         <h2 className="font-bold"> Moneda: USD</h2>
-      
-        <p className="text-sm">
-          Una vez recibido su pedido, le enviaremos el número de Zelle para que
-          pueda realizar el pago.
-        </p>
+
+        <h2> 1 - Escoge los productos que desee y sus cantidades.</h2>
+        <h2>2- Rellena los datos del beneficiario.</h2>
+        <h2>
+          {" "}
+          3- Presione Enviar Pedido, será enviado al vendedor por WhatsApp.
+        </h2>
+        <h2>
+          {" "}
+          4- Una vez recibido su pedido, le enviaremos el número de Zelle para
+          que pueda realizar el pago.
+        </h2>
+
+        
       </section>
     </>
   );

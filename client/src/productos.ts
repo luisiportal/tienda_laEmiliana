@@ -43,7 +43,7 @@ export const productos: Producto[] = [
   {
     id: 4,
     nombre: "Salchicha 3KG",
-    description: "",
+    description: "Contiene 60 perritos aproximadamente",
     precio: 9,
     image: "salchicha3kg.jpg",
     categoria: "Carnícos",
@@ -362,7 +362,7 @@ export const productos: Producto[] = [
     alias: "refresco-lata-ritz",
     agotado: false,
   },
-    {
+  {
     id: 37,
     nombre: "Lomo de Cerdo 1 LB",
     precio: 3.25,
@@ -372,27 +372,27 @@ export const productos: Producto[] = [
     alias: "lomo-cerdo",
     agotado: false,
   },
-     {
+  {
     id: 38,
     nombre: "Caja Mayabe 24u",
-    precio: 16.90,
+    precio: 16.9,
     description: "24 unidades de Mayabe",
     image: "mayabe_1.png",
     categoria: "Bebidas",
     alias: "caja-mayabe",
     agotado: false,
   },
-    {
+  {
     id: 39,
     nombre: "Caja Cristal 24u",
-    precio: 16.90,
+    precio: 16.9,
     description: "24 unidades de Cristal de Lata",
     image: "caja-cristal.webp",
     categoria: "Bebidas",
     alias: "caja-cristal",
     agotado: false,
   },
-      {
+  {
     id: 40,
     nombre: "Caja Pollo 15 kg",
     precio: 35.1,
@@ -402,17 +402,17 @@ export const productos: Producto[] = [
     alias: "pollo-33",
     agotado: false,
   },
-     {
+  {
     id: 41,
     nombre: "Vinagre 1L",
-    precio: 1.10,
+    precio: 1.1,
     description: "1 litro de Vinagre",
     image: "vinagre.jpeg",
     categoria: "Varios",
     alias: "vinagre",
     agotado: false,
   },
-    {
+  {
     id: 42,
     nombre: "Sorbeto Touch",
     precio: 0.45,
@@ -422,7 +422,7 @@ export const productos: Producto[] = [
     alias: "sorbeto-touch",
     agotado: false,
   },
-    {
+  {
     id: 43,
     nombre: "Nectar de Manzana",
     precio: 0.99,
@@ -432,7 +432,7 @@ export const productos: Producto[] = [
     alias: "jugo-lata-manzana",
     agotado: false,
   },
-      {
+  {
     id: 44,
     nombre: "Ensalada Fría",
     precio: 2.0,
@@ -441,5 +441,15 @@ export const productos: Producto[] = [
     categoria: "Varios",
     alias: "ensalada-fria",
     agotado: true,
+  },
+    {
+    id: 45,
+    nombre: "Malta Bucanero",
+    precio: 0.99,
+    description: "Lata de Malta Bucanero 355 ML",
+    image: "malta-bucanero.webp",
+    categoria: "Varios",
+    alias: "malta-bucanero",
+    agotado: false,
   },
 ];
