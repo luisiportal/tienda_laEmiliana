@@ -8,6 +8,12 @@ export type Producto = {
   alias: string;
   agotado:boolean
 };
+export type Modal = {
+  mensaje: string;
+  errorColor?: boolean;
+  activo: boolean;
+  navegarA?: string;
+};
 export type Carrito = {
   productos: CartItem[];
   total?: number;

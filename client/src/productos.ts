@@ -150,7 +150,7 @@ export const productos: Producto[] = [
     image: "queso-gouda_3.webp",
     categoria: "Lácteos",
     alias: "queso-gouda-1lb",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 16,
