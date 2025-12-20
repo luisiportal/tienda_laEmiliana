@@ -320,7 +320,7 @@ export const productos: Producto[] = [
     image: "jabon-lavar-flash.webp",
     categoria: "Aseo",
     alias: "jabon-lavar-flash",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 33,
