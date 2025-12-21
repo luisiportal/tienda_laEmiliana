@@ -462,4 +462,14 @@ export const productos: Producto[] = [
     alias: "yes-manazana",
     agotado: false,
   },
+    {
+    id: 47,
+    nombre: "Café Sublime 250G ",
+    precio: 4.2,
+    description: "Café Extra Fuerte",
+    image: "cafe-sublime.webp",
+    categoria: "Varios",
+    alias: "cafe-sublime",
+    agotado: false,
+  },
 ];
