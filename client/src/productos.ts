@@ -55,7 +55,7 @@ export const productos: Producto[] = [
     nombre: "Leche 1KG",
     description: "",
     precio: 7.99,
-    image: "bartex.jpg",
+    image: "leche1kg.jpg",
     categoria: "Lácteos",
     alias: "leche",
     agotado: false,
@@ -347,9 +347,9 @@ export const productos: Producto[] = [
     nombre: "Coditos",
     precio: 0.8,
     description: "Paquete de 500g",
-    image: "coditos-doga.webp",
+    image: "coditos-ada.jpg",
     categoria: "Pastas",
-    alias: "coditos-doga",
+    alias: "coditos-ada",
     agotado: false,
   },
   {
@@ -375,7 +375,7 @@ export const productos: Producto[] = [
   {
     id: 38,
     nombre: "Caja Mayabe 24u",
-    precio: 16.9,
+    precio: 15.8,
     description: "24 unidades de Mayabe",
     image: "mayabe_1.png",
     categoria: "Bebidas",
@@ -472,4 +472,15 @@ export const productos: Producto[] = [
     alias: "cafe-sublime",
     agotado: false,
   },
+    {
+    id: 48,
+    nombre: "Pechuga de Pollo 2kg",
+    precio: 12.2,
+    description: "Carne limpia sin hueso",
+    image: "pechuga-sin.webp",
+    categoria: "Carnícos",
+    alias: "pechuga-pollo",
+    agotado: false,
+  },
+  
 ];

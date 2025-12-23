@@ -1,5 +1,6 @@
 import { ErrorMessage, type FormikErrors, type FormikTouched } from "formik";
-import type { Entrega, Producto } from "../../types/General.type";
+
+import type { Articulo, Autor, DeviceInfo, Programa, User, VistaVideo } from "../types/General.type";
 
 const InputText = ({
   values,
@@ -12,18 +13,18 @@ const InputText = ({
   type = "text",
   placeholderText,
 }: {
-  values: Producto;
+  values?: Programa | Articulo | Autor | VistaVideo | DeviceInfo | User;
   handleChange: any;
   campo: string;
   nombre: string;
-  errors: FormikErrors<Entrega>;
-  touched: FormikTouched<Entrega>;
+  errors: FormikErrors<Programa>;
+  touched: FormikTouched<Programa>;
   disabled?: boolean;
   type?: string;
   placeholderText?: string;
 }) => {
   return (
-    <div className="bg-neutral-200 shadow flex flex-col p-2 rounded-xl border-2 border-white hover:border-AzulUCM transition-all duration-300">
+    <div className="bg-white shadow flex flex-col p-2 rounded-xl border-2 border-white hover:border-AzulUCM transition-all duration-300">
       <label className="text-xs text-slate-800" htmlFor={campo}>
         {nombre || campo}:
       </label>
@@ -39,11 +40,11 @@ const InputText = ({
         onChange={handleChange}
       />
 
-      {typeof errors[campo] === "string" && (
-        <div className="bg-red-500 w-fit text-white font-semibold text-sm p-2 m-2 mb-0 rounded-lg">
-          {errors[campo]}
-        </div>
-      )}
+       {errors[campo] && touched[campo] && (
+             <div className="bg-red-500 w-fit text-white font-semibold text-sm  p-2 m-2 mb-0 rounded-lg">
+               <ErrorMessage name={campo} className="" />
+             </div>
+           )}
     </div>
   );
 };

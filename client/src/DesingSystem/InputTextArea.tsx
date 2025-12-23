@@ -1,5 +1,5 @@
 import { ErrorMessage, type FormikErrors, type FormikTouched } from "formik";
-import type { Entrega, Producto } from "../../types/General.type";
+import type { Autor, Programa, VistaVideo } from "../types/General.type";
 
 const InputTextArea = ({
   values,
@@ -12,18 +12,18 @@ const InputTextArea = ({
   rows = 3,
   placeholder,
 }: {
-  values:Producto;
+  values:Programa | Autor| VistaVideo;
   handleChange: any;
   campo: string;
   nombre: string;
-  errors: FormikErrors<Entrega>;
-  touched: FormikTouched<Entrega>;
+  errors: FormikErrors<Programa>;
+  touched: FormikTouched<Programa>;
   disabled?: boolean;
   rows?: number;
   placeholder?: string;
 }) => {
   return (
-    <div className="bg-neutral-200 w-full shadow flex flex-col  p-2 rounded-lg border-2 border-white hover:border-AzulUCM transition-all duration-300">
+    <div className="bg-white w-full shadow flex flex-col  p-2 rounded-lg border-2 border-white hover:border-AzulUCM transition-all duration-300">
       <label className="text-xs text-slate-800" htmlFor={campo}>
         {nombre || campo}:
       </label>
@@ -38,9 +38,9 @@ const InputTextArea = ({
         onChange={handleChange}
       />
 
-  {typeof errors[campo] === "string" && (
-        <div className="bg-red-500 w-fit text-white font-semibold text-sm p-2 m-2 mb-0 rounded-lg">
-          {errors[campo]}
+      {errors[campo] && touched[campo] && (
+        <div className="bg-red-500 w-fit text-white font-semibold text-sm  p-2 m-2 mb-0 rounded-lg">
+          <ErrorMessage name={campo} className="" />
         </div>
       )}
     </div>

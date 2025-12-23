@@ -1,4 +1,6 @@
 export type Producto = {
+  [key: string]: any;
+
   id: number;
   nombre: string;
   description: string;
@@ -6,7 +8,7 @@ export type Producto = {
   precio: number;
   categoria: string;
   alias: string;
-  agotado:boolean
+  agotado: boolean;
 };
 export type Modal = {
   mensaje: string;
@@ -17,11 +19,13 @@ export type Modal = {
 export type Carrito = {
   productos: CartItem[];
   total?: number;
-}
+};
 // Ítem en el carrito (producto + cantidad)
 export type CartItem = Producto & {
   cantidad: number;
 };
+
+export type ReactSelectOption = { value: number; label: string };
 
 export type Categoria = {
   id: number;
@@ -31,12 +35,10 @@ export type Categoria = {
   alias: string;
 };
 
-export type Entrega ={
-   [key: string]: any;
-  ordenante:string;
-  beneficiario:string;
-  direccion:string;
-  tel_beneficiario:string;
-}
-
-
+export type Entrega = {
+  [key: string]: any;
+  ordenante: string;
+  beneficiario: string;
+  direccion: string;
+  tel_beneficiario: string;
+};
