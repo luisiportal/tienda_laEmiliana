@@ -16,14 +16,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->path() !== 'api/images/subir') {
-            $fingerprint = $request->header('X-Device-ID');
-            if (!DeviceHelper::isAuthorizedDevice($fingerprint)) {
-                abort(403, 'Dispositivo no autorizado');
-            }
-        }
-
-
+     
         $user = auth('api')->user();
         if ($user && $user->role === 'admin') {
             return $next($request);

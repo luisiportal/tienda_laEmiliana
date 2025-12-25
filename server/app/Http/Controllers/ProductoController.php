@@ -29,7 +29,7 @@ class ProductoController extends Controller
     'category'    => 'required|string|max:255',
     'alias'       => 'nullable|string|max:255|unique:productos,alias,',
     'agotado'     => 'required|boolean',
-    'image_url'   => 'required|image|max:2024', // 2 MB aprox
+
 ]);
 
 

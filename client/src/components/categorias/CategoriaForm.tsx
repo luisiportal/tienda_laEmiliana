@@ -2,70 +2,50 @@ import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { useModal } from "../../stores/modalStore";
 import { useLoader } from "../../stores/loaderStore";
-import type { Categoria, Producto, ReactSelectOption } from "../../types/General.type";
+import type {
+  Categoria,
+} from "../../types/General.type";
 import {
-  createProductoRequest,
   getProductobyIdRequest,
-  updateProductoRequest,
 } from "../../api/productos.api";
 import GeneralButton from "../../DesingSystem/GeneralButton";
 import InputImage from "../../DesingSystem/InputImage";
 import TituloModulo from "../../DesingSystem/TituloModulo";
 import InputText from "../DS/InputText";
 import InputTextArea from "../DS/InputTextArea";
-import Select, { type SingleValue } from "react-select";
-import { useQuery } from "@tanstack/react-query";
-import { getCategoriasRequest } from "../../api/categorias.api";
+import { createCategoriaRequest,  updateCategoriaRequest } from "../../api/categorias.api";
 
-const CategoriaForm = () => {
-    
+const CategoriaForm = ({id}:{id:string}) => {
   const [file, setFile] = useState<Blob | File>();
   const { setModal } = useModal();
   const { setLoader } = useLoader();
-  const [producto, setProducto] = useState<Producto>({} as Producto);
-  const [categoriaOption, setCategoriaOption] = useState<
-    SingleValue<ReactSelectOption>
-  >({
-    value: 0,
-    label: "",
-  });
-  //const { id } = useParams();
-  const id = "1";
-
-   const { data } = useQuery({
-    queryKey: ["categorias"],
-    queryFn: getCategoriasRequest,
-  });
-  const categorias = data?.map((item) => ({
-    value: item.id,
-    label: item.nombre,
-  }));
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
+  
 
   const cargar = async (id: string) => {
     const response = await getProductobyIdRequest(Number(id));
 
-    setProducto(response);
+    setCategoria(response);
   };
 
   useEffect(() => {
     if (id) cargar(id);
   }, []);
 
-  const onSubmit = async (values: Producto) => {
+  const onSubmit = async (values: Categoria) => {
     const formData = new FormData();
-    formData.append("name", values.n);
-    formData.append("resumen", values.resumen);
+    formData.append("nombre", values.nombre);
+    formData.append("description", values.description);
     if (file) {
-      formData.append("image_url", file);
+      formData.append("image", file);
     }
 
     try {
       setLoader(true);
-      console.log(file);
 
-      const { data } = producto.id
-        ? await updateProductoRequest(formData, Number(producto.id) || 0)
-        : await createProductoRequest(formData);
+      const { data } = categoria.id
+        ? await updateCategoriaRequest(formData, Number(categoria.id) || 0)
+        : await createCategoriaRequest(formData);
 
       return setModal({
         mensaje: data.message,
@@ -85,13 +65,13 @@ const CategoriaForm = () => {
     }
   };
   const titulo = `${
-    producto?.nombre ? "Editar Autor" : "Agregar un Nuevo Autor"
+    categoria ? "Editar Categoría" : "Agregar un Nueva Categoría"
   }`;
   return (
     <section className="mx-auto max-w-4xl -mt-20">
       <TituloModulo titulo={titulo} />
       <Formik
-        initialValues={producto}
+        initialValues={categoria}
         onSubmit={onSubmit}
         //validationSchema={autorSchema}
         enableReinitialize
@@ -100,66 +80,39 @@ const CategoriaForm = () => {
           <Form className="-mt-10">
             <InputText
               values={values}
-              campo="name"
-              nombre="Nombre Producto"
+              campo="nombre"
+              nombre="Nombre Categoría"
               errors={errors}
               handleChange={handleChange}
               touched={touched}
             />
             <InputTextArea
               campo="description"
-              nombre="Resumen"
+              nombre="Descripción"
               values={values}
               handleChange={handleChange}
               errors={errors}
               touched={touched}
               rows={10}
             />
-            <InputText
-              values={values}
-              campo="price_usd"
-              nombre="Precio USD"
-              errors={errors}
-              handleChange={handleChange}
-              touched={touched}
-            />
-            <InputText
-              values={values}
-              campo="cost"
-              nombre="Costo CUP"
-              errors={errors}
-              handleChange={handleChange}
-              touched={touched}
-            />
 
-            <div className="bg-neutral-200 rounded-xl p-5 mt-5 h-28 flex items-center">
-              {" "}
-              <Select
-                id="categoria"
-                className="w-full rounded-xl"
-                isSearchable={true}
-                value={categoriaOption}
-                onChange={setCategoriaOption}
-                options={categorias}
-              />
-            </div>
             <InputImage
-              label="Imagen de Producto"
+              label="Imagen de Categoría"
               errors={errors}
               file={file}
               setFile={setFile}
               touched={touched}
               setModal={setModal}
-              image_url={producto.imagen}
+              image_url={categoria.image}
             />
 
             <div className="flex justify-center">
               {" "}
               <GeneralButton
-                css="w-60"
+                css="w-60 bg-green-500"
                 nombreBTN="Aceptar"
                 type="submit"
-                onClick={{}}
+               
               />
             </div>
           </Form>

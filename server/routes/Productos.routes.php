@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;

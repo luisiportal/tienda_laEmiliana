@@ -28,6 +28,8 @@ export type CartItem = Producto & {
 export type ReactSelectOption = { value: number; label: string };
 
 export type Categoria = {
+  [key: string]: any;
+
   id: number;
   nombre: string;
   description: string;

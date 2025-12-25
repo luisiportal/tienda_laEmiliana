@@ -16,6 +16,7 @@ import InputTextArea from "../DS/InputTextArea";
 import Select, { type SingleValue } from "react-select";
 import { useQuery } from "@tanstack/react-query";
 import { getCategoriasRequest } from "../../api/categorias.api";
+import { queryClient } from "../../stores";
 
 const ProductoForm = () => {
   const [file, setFile] = useState<Blob | File>();
@@ -34,7 +35,7 @@ const ProductoForm = () => {
    const { data } = useQuery({
     queryKey: ["categorias"],
     queryFn: getCategoriasRequest,
-  });
+  }, queryClient);
   const categorias = data?.map((item) => ({
     value: item.id,
     label: item.nombre,

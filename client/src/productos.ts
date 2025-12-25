@@ -45,7 +45,7 @@ export const productos: Producto[] = [
     nombre: "Salchicha 3KG",
     description: "Contiene 60 perritos aproximadamente",
     precio: 9,
-    image: "salchicha3kg.jpg",
+    image: "salchichas-guibon.jpg",
     categoria: "Carnícos",
     alias: "salchicha-3kg",
     agotado: false,

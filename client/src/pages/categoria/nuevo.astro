@@ -2,7 +2,8 @@
 import TituloModulo from "../../components/DS/TituloModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import CategoriaForm from "../../components/categorias/CategoriaForm";
-import ReactQueryProvider from "../../providers/ReactQueryProvider";
+
+const { id } = Astro.params;
 ---
 
 <PrincipalLayaout
@@ -12,5 +13,7 @@ import ReactQueryProvider from "../../providers/ReactQueryProvider";
   url="https://www.tiendalaemiliana.com"
 >
 <TituloModulo titulo="Nueva Categoria" alias="nuevoCategoria"/>
+
+  <CategoriaForm id={id ?? ""} client:visible />
 
 </PrincipalLayaout>

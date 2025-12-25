@@ -2,7 +2,7 @@
 import TituloModulo from "../../components/DS/TituloModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import ProductoForm from '../../components/productos/ProductoForm'
-import ReactQueryProvider from "../../providers/ReactQueryProvider";
+
 ---
 
 <PrincipalLayaout
@@ -13,5 +13,5 @@ import ReactQueryProvider from "../../providers/ReactQueryProvider";
 >
 <TituloModulo titulo="Nuevo Producto" alias="nuevoProducto"/>
 
-
+<ProductoForm client:visible/>
 </PrincipalLayaout>

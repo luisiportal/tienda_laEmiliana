@@ -1,5 +1,5 @@
 import { ErrorMessage, type FormikErrors, type FormikTouched } from "formik";
-import type { Entrega, Producto } from "../../types/General.type";
+import type { Categoria, Entrega, Producto } from "../../types/General.type";
 
 const InputTextArea = ({
   values,
@@ -12,7 +12,7 @@ const InputTextArea = ({
   rows = 3,
   placeholder,
 }: {
-  values:Producto;
+  values:Producto | Categoria;
   handleChange: any;
   campo: string;
   nombre: string;
