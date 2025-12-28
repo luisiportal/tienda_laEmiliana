@@ -11,7 +11,7 @@ class Producto extends Model
 
     // Campos que se pueden asignar masivamente
     protected $fillable = [
-        'name',
+        'nombre',
         'description',
         'price_usd',
         'cost',

@@ -364,8 +364,8 @@ export const productos: Producto[] = [
   },
   {
     id: 37,
-    nombre: "Lomo de Cerdo 1 LB",
-    precio: 3.25,
+    nombre: "Pedazo de Lomo de Cerdo 1.8 LB",
+    precio: 5.85,
     description: "No contiene huesos, ni gordo",
     image: "lomo-cerdo.jpg",
     categoria: "Carnícos",

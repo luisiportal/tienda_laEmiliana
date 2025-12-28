@@ -1,5 +1,4 @@
 ---
-import TituloModulo from "../../components/DS/TituloModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import CategoriaForm from "../../components/categorias/CategoriaForm";
 
@@ -12,7 +11,7 @@ const { id } = Astro.params;
   img_url="favicons/web-app-manifest-512x512.png"
   url="https://www.tiendalaemiliana.com"
 >
-<TituloModulo titulo="Nueva Categoria" alias="nuevoCategoria"/>
+
 
   <CategoriaForm id={id ?? ""} client:visible />
 

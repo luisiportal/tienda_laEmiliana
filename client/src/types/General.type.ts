@@ -36,6 +36,27 @@ export type Categoria = {
   image: string;
   alias: string;
 };
+export type isAuthenticated = {
+  user: User;
+  setUser: (estado: User) => void;
+  isAuthenticated: boolean;
+  setIsAuthenticated: (estado: boolean) => void;
+  isAdmin: boolean;
+  setIsAdmin: (estado: boolean) => void;
+  dispositivoAutorizado: boolean;
+  setDispositivoAutorizado: (estado: boolean) => void;
+};
+
+export type User = {
+  [key: string]: any;
+  id?: number;
+  name: string;
+  password?: string;
+  password_confirmation?: string;
+  role: string;
+  email?: string;
+  image: string;
+};
 
 export type Entrega = {
   [key: string]: any;

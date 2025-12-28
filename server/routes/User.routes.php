@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 // public routes
 
+ Route::controller(UserController::class)->group(function () {
+  
+        Route::post('usuarios/', 'register');
+
+
+    });
+
+
 // rutas admin
 Route::middleware([IsAdmin::class])->group(function () {
     Route::controller(UserController::class)->group(function () {
@@ -19,7 +27,6 @@ Route::middleware([IsAdmin::class])->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::delete('usuarios/{id}', 'destroy');
         Route::post('usuarios/buscar', 'buscarUsuarios');
-        Route::post('usuarios/', 'register');
 
 
     });

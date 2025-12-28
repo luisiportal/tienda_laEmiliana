@@ -2,7 +2,11 @@ import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { useModal } from "../../stores/modalStore";
 import { useLoader } from "../../stores/loaderStore";
-import type { Categoria, Producto, ReactSelectOption } from "../../types/General.type";
+import type {
+  Categoria,
+  Producto,
+  ReactSelectOption,
+} from "../../types/General.type";
 import {
   createProductoRequest,
   getProductobyIdRequest,
@@ -32,10 +36,13 @@ const ProductoForm = () => {
   //const { id } = useParams();
   const id = "1";
 
-   const { data } = useQuery({
-    queryKey: ["categorias"],
-    queryFn: getCategoriasRequest,
-  }, queryClient);
+  const { data } = useQuery(
+    {
+      queryKey: ["categorias"],
+      queryFn: getCategoriasRequest,
+    },
+    queryClient
+  );
   const categorias = data?.map((item) => ({
     value: item.id,
     label: item.nombre,
@@ -53,8 +60,12 @@ const ProductoForm = () => {
 
   const onSubmit = async (values: Producto) => {
     const formData = new FormData();
-    formData.append("name", values.n);
-    formData.append("resumen", values.resumen);
+    formData.append("nombre", values.nombre);
+    formData.append("description", values.description);
+    formData.append("price_usd", values.price_usd);
+    formData.append("cost", values.cost);
+    formData.append("categoria", String(categoriaOption?.value));
+
     if (file) {
       formData.append("image_url", file);
     }
@@ -100,7 +111,7 @@ const ProductoForm = () => {
           <Form className="-mt-10">
             <InputText
               values={values}
-              campo="name"
+              campo="nombre"
               nombre="Nombre Producto"
               errors={errors}
               handleChange={handleChange}
@@ -108,7 +119,7 @@ const ProductoForm = () => {
             />
             <InputTextArea
               campo="description"
-              nombre="Resumen"
+              nombre="Descripción"
               values={values}
               handleChange={handleChange}
               errors={errors}
@@ -155,12 +166,7 @@ const ProductoForm = () => {
 
             <div className="flex justify-center">
               {" "}
-              <GeneralButton
-                css="w-60"
-                nombreBTN="Aceptar"
-                type="submit"
-                onClick={{}}
-              />
+              <GeneralButton css="w-60" nombreBTN="Aceptar" type="submit" />
             </div>
           </Form>
         )}

@@ -2,27 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesor;
 use App\Models\User;
-use App\Services\LogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
     protected $logService;
-    // Inyectar el servicio en el constructor
-    public function __construct(LogService $logService)
-    {
-        $this->logService = $logService;
-    }
-
+ 
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'user' => 'required|string|unique:users',
+            'name' => 'required|string|unique:users',
             'password' => 'required|string|min:5|confirmed',
 
 
@@ -36,7 +28,7 @@ class UserController extends Controller
 
         try {
             $user = User::create([
-                'user' => strtolower($request->get('user')),
+                'name' => strtolower($request->get('name')),
                 'role' => $request->get('role'),
                 'email' => "no",
                 'password' => bcrypt($request->get('password')),
@@ -109,7 +101,7 @@ class UserController extends Controller
         ;
         DB::beginTransaction();
         $validator = Validator::make($request->all(), [
-            'user' => 'sometimes|string',
+            'name' => 'sometimes|string',
             'role' => 'sometimes|string',
 
             'password' => 'sometimes|string|min:5|confirmed',
@@ -125,9 +117,9 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
         }
         if (
-            $request->hasAny(['user', 'password', 'role',])
+            $request->hasAny(['name', 'password', 'role',])
         ) {
-            $user->user = $request->user;
+            $user->name = $request->name;
             $user->role = $request->role;
         }
 

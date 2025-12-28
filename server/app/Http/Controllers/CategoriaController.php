@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoriaController extends Controller
 {
-    public function getCategorias()
+    public function getTodasCategorias()
     {
         $categorias = Categoria::get();
         return response()->json($categorias, 200);
@@ -23,7 +23,7 @@ class CategoriaController extends Controller
             'nombre' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
             'alias' => 'nullable|string|max:255|unique:categorias,alias,',
-            'image' => 'required|image|max:2024', // 2 MB aprox
+            'image' => 'image|max:2024', // 2 MB aprox
         ]);
 
 
