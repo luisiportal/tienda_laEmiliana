@@ -3,6 +3,8 @@ import type { Producto } from "./types/General.type";
 const usd = 415;
 const margen = 0.3; // 30%
 
+export const cerrado = true;
+
 const precioFinal = (costo: number) => {
   const precioFinal = costo / (1 - margen);
   return precioFinal / usd;
@@ -28,7 +30,7 @@ export const productos: Producto[] = [
     image: "haysa1l.jpg",
     categoria: "Varios",
     alias: "aceite",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 3,
@@ -38,7 +40,7 @@ export const productos: Producto[] = [
     image: "pollo10lb.jpg",
     categoria: "Carnícos",
     alias: "pollo-10-lb",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 4,
@@ -48,7 +50,7 @@ export const productos: Producto[] = [
     image: "salchichas-guibon.jpg",
     categoria: "Carnícos",
     alias: "salchicha-3kg",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 5,
@@ -452,7 +454,7 @@ export const productos: Producto[] = [
     alias: "malta-bucanero",
     agotado: false,
   },
-    {
+  {
     id: 46,
     nombre: "Jugo Manazana 1L",
     precio: 2.4,
@@ -462,7 +464,7 @@ export const productos: Producto[] = [
     alias: "yes-manazana",
     agotado: false,
   },
-    {
+  {
     id: 47,
     nombre: "Café Sublime 250G ",
     precio: 4.2,
@@ -472,7 +474,7 @@ export const productos: Producto[] = [
     alias: "cafe-sublime",
     agotado: false,
   },
-    {
+  {
     id: 48,
     nombre: "Pechuga de Pollo 2kg",
     precio: 12.2,
@@ -482,5 +484,4 @@ export const productos: Producto[] = [
     alias: "pechuga-pollo",
     agotado: false,
   },
-  
 ];
