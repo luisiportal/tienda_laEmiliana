@@ -402,7 +402,7 @@ export const productos: Producto[] = [
     image: "pollo-33.webp",
     categoria: "Carnícos",
     alias: "pollo-33",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 41,
