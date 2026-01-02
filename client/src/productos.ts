@@ -484,4 +484,14 @@ export const productos: Producto[] = [
     alias: "pechuga-pollo",
     agotado: false,
   },
+    {
+    id: 49,
+    nombre: "Salchichas de Pollo 10(u)",
+    precio: 1.1,
+    description: "Pqt de 10 salchichas de pollo",
+    image: "salchichas.webp",
+    categoria: "Carnícos",
+    alias: "salchicas10",
+    agotado: false,
+  },
 ];
