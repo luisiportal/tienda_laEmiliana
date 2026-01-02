@@ -494,4 +494,14 @@ export const productos: Producto[] = [
     alias: "salchicas10",
     agotado: false,
   },
+      {
+    id: 50,
+    nombre: "Compoticas para Bebés (Pera)",
+    precio: 0.85,
+    description: "Sabor Pera",
+    image: "compotapera.webp",
+    categoria: "Varios",
+    alias: "compota-pera",
+    agotado: false,
+  },
 ];
