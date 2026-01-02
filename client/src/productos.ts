@@ -3,7 +3,7 @@ import type { Producto } from "./types/General.type";
 const usd = 415;
 const margen = 0.3; // 30%
 
-export const cerrado = true;
+export const cerrado = false;
 
 const precioFinal = (costo: number) => {
   const precioFinal = costo / (1 - margen);
@@ -30,7 +30,7 @@ export const productos: Producto[] = [
     image: "haysa1l.jpg",
     categoria: "Varios",
     alias: "aceite",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const productos: Producto[] = [
     image: "pollo10lb.jpg",
     categoria: "Carnícos",
     alias: "pollo-10-lb",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 4,
