@@ -467,12 +467,12 @@ export const productos: Producto[] = [
   {
     id: 47,
     nombre: "Café Sublime 250G ",
-    precio: 4.2,
+    precio: 4.3,
     description: "Café Extra Fuerte",
     image: "cafe-sublime.webp",
     categoria: "Varios",
     alias: "cafe-sublime",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 48,
