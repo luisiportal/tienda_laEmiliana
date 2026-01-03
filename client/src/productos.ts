@@ -372,7 +372,7 @@ export const productos: Producto[] = [
     image: "lomo-cerdo.jpg",
     categoria: "Carnícos",
     alias: "lomo-cerdo",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 38,
