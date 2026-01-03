@@ -1,9 +1,5 @@
 #!/bin/sh
 
-echo "Esperando a que MySQL esté listo..."
-while ! nc -z profesores-db 3306; do   
-  sleep 1
-done
 
 echo "Ejecutando migraciones..."
 php artisan migrate --force || echo "⚠️ Error al migrar"
