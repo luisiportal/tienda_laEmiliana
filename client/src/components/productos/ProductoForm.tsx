@@ -2,11 +2,7 @@ import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { useModal } from "../../stores/modalStore";
 import { useLoader } from "../../stores/loaderStore";
-import type {
-  Categoria,
-  Producto,
-  ReactSelectOption,
-} from "../../types/General.type";
+import type { Producto, ReactSelectOption } from "../../types/General.type";
 import {
   createProductoRequest,
   getProductobyIdRequest,
@@ -21,6 +17,7 @@ import Select, { type SingleValue } from "react-select";
 import { useQuery } from "@tanstack/react-query";
 import { getCategoriasRequest } from "../../api/categorias.api";
 import { queryClient } from "../../stores";
+import { useParams } from "react-router-dom";
 
 const ProductoForm = () => {
   const [file, setFile] = useState<Blob | File>();
@@ -33,8 +30,7 @@ const ProductoForm = () => {
     value: 0,
     label: "",
   });
-  //const { id } = useParams();
-  const id = "1";
+  const { id } = useParams();
 
   const { data } = useQuery(
     {
@@ -49,9 +45,15 @@ const ProductoForm = () => {
   }));
 
   const cargar = async (id: string) => {
+    setLoader(true);
     const response = await getProductobyIdRequest(Number(id));
 
     setProducto(response);
+    setCategoriaOption({
+      label: response.categoria.nombre,
+      value: response.categoria.id,
+    });
+    setLoader(false)
   };
 
   useEffect(() => {
@@ -62,8 +64,8 @@ const ProductoForm = () => {
     const formData = new FormData();
     formData.append("nombre", values.nombre);
     formData.append("description", values.description);
-    formData.append("price_usd", values.price_usd);
-    formData.append("cost", values.cost);
+    formData.append("price_usd", String(values.price_usd));
+    formData.append("cost", String(values.cost));
     formData.append("categoria", String(categoriaOption?.value));
 
     if (file) {
@@ -72,7 +74,6 @@ const ProductoForm = () => {
 
     try {
       setLoader(true);
-      console.log(file);
 
       const { data } = producto.id
         ? await updateProductoRequest(formData, Number(producto.id) || 0)
@@ -82,7 +83,7 @@ const ProductoForm = () => {
         mensaje: data.message,
         errorColor: false,
         activo: true,
-        navegarA: "/autores",
+        navegarA: "/admin/productos",
       });
     } catch (error: any) {
       console.log(error);
@@ -96,10 +97,10 @@ const ProductoForm = () => {
     }
   };
   const titulo = `${
-    producto?.nombre ? "Editar Autor" : "Agregar un Nuevo Autor"
+    producto?.nombre ? "Editar Producto" : "Agregar un Nuevo Producto"
   }`;
   return (
-    <section className="mx-auto max-w-4xl -mt-20">
+    <section className="mx-auto max-w-4xl">
       <TituloModulo titulo={titulo} />
       <Formik
         initialValues={producto}
@@ -108,7 +109,7 @@ const ProductoForm = () => {
         enableReinitialize
       >
         {({ handleChange, errors, touched, values }) => (
-          <Form className="-mt-10">
+          <Form className="mt-8 flex flex-col gap-5">
             <InputText
               values={values}
               campo="nombre"
@@ -124,7 +125,7 @@ const ProductoForm = () => {
               handleChange={handleChange}
               errors={errors}
               touched={touched}
-              rows={10}
+              rows={3}
             />
             <InputText
               values={values}
@@ -143,16 +144,18 @@ const ProductoForm = () => {
               touched={touched}
             />
 
-            <div className="bg-neutral-200 rounded-xl p-5 mt-5 h-28 flex items-center">
-              {" "}
-              <Select
-                id="categoria"
-                className="w-full rounded-xl"
-                isSearchable={true}
-                value={categoriaOption}
-                onChange={setCategoriaOption}
-                options={categorias}
-              />
+            <div className="bg-neutral-200 rounded-xl  p-2 h-28">
+              <label className="text-xs text-slate-800">Categoría: </label>{" "}
+              <div className=" flex items-center">
+                <Select
+                  id="categoria"
+                  className="w-full rounded-xl"
+                  isSearchable={true}
+                  value={categoriaOption}
+                  onChange={setCategoriaOption}
+                  options={categorias}
+                />
+              </div>
             </div>
             <InputImage
               label="Imagen de Producto"
@@ -166,7 +169,11 @@ const ProductoForm = () => {
 
             <div className="flex justify-center">
               {" "}
-              <GeneralButton css="w-60" nombreBTN="Aceptar" type="submit" />
+              <GeneralButton
+                css="w-60 bg-green-500"
+                nombreBTN="Aceptar"
+                type="submit"
+              />
             </div>
           </Form>
         )}

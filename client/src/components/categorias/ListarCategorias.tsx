@@ -13,7 +13,7 @@ const ListarCategorias = () => {
   );
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-5">
       ListarCategorias
       {data?.map((item) => (
         <CategoriaCard categoria={item}/>

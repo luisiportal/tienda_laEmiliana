@@ -12,7 +12,7 @@ const InputTextArea = ({
   rows = 3,
   placeholder,
 }: {
-  values:Producto | Categoria;
+  values:Producto | Categoria | Entrega;
   handleChange: any;
   campo: string;
   nombre: string;

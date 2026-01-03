@@ -20,7 +20,7 @@ const CardCarrito = ({ item }: { item: CartItem }) => {
         </div>
         <div className="flex justify-between w-full">
           <h2 className="font-bold text-3xl flex items-center gap-1">
-            {(item.cantidad * item.precio).toFixed(2)}
+            {(item.cantidad * Number(item.price_usd)).toFixed(2)}
             <span className="text-xs font-semibold text-neutral-600 mt-3">
               USD
             </span>

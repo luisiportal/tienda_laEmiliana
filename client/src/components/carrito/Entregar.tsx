@@ -13,7 +13,7 @@ const Entregar = ({ carrito }: { carrito: Carrito }) => {
     const mensaje = carrito?.productos
       ?.map(
         (p) =>
-          `• ${p.cantidad} x ${p.nombre} = $${(p.precio * p.cantidad).toFixed(
+          `• ${p.cantidad} x ${p.nombre} = $${(p.price_usd * p.cantidad).toFixed(
             2
           )}`
       )

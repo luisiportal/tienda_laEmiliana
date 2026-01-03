@@ -1,10 +1,10 @@
 ---
 import PrincipalLayaout from "../layouts/PrincipalLayaout.astro";
-import DestacadoModulo from "../components/destacados/DestacadoModulo.astro";
 import BarraCarrito from "../components/barraCarrito/BarraCarrito";
 import Modulos from "../components/Modulos.astro";
 import Asistente from "../components/asistente/Asistente.astro";
 import SugerirProductos from "../components/sugerir/SugerirProductos";
+import DestacadoModulo from "../components/destacados/DestacadoModulo";
 ---
 
 <PrincipalLayaout
@@ -13,8 +13,7 @@ import SugerirProductos from "../components/sugerir/SugerirProductos";
   img_url="favicons/web-app-manifest-512x512.png"
   url="https://www.tiendalaemiliana.com"
 >
-  <DestacadoModulo />
-
+  <DestacadoModulo client:load />
   <SugerirProductos client:only />
   <Modulos />
   <BarraCarrito client:visible />

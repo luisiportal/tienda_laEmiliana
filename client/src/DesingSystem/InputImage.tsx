@@ -1,5 +1,5 @@
 import { ErrorMessage, type FormikErrors, type FormikTouched } from "formik";
-import type { Modal, Programa } from "../types/General.type";
+import type { Modal, Producto } from "../types/General.type";
 
 const InputImage = ({
   setFile,
@@ -13,8 +13,8 @@ const InputImage = ({
   setModal: (estado: Modal) => void;
   file: Blob | File | undefined;
   setFile: React.Dispatch<React.SetStateAction<Blob | File | undefined>>;
-  errors: FormikErrors<Programa>;
-  touched: FormikTouched<Programa>;
+  errors: FormikErrors<Producto>;
+  touched: FormikTouched<Producto>;
   label: string;
   image_url: string;
 }) => {
@@ -30,7 +30,7 @@ const InputImage = ({
         className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         onChange={(e) => {
           if (e.target.files) {
-            const imgPermitidas = ["image/png", "image/jpg", "image/jpeg"];
+            const imgPermitidas = ["image/png", "image/jpg", "image/jpeg" ,"image/webp"];
             if (imgPermitidas.includes(e.target.files[0].type)) {
               setFile(e.target.files[0]);
             } else {

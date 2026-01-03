@@ -7,7 +7,6 @@ import type { User } from "../../types/General.type";
 import { usuarioSchema } from "../../schemas/UsuarioSchema";
 import GeneralButton from "../../DesingSystem/GeneralButton";
 import { loginRequest } from "../../api/auth.api";
-import { writeLocalStorage } from "../../utils/useLocalStorage";
 import { useIsAuthenticated } from "../../stores/isAuthenticatedStore";
 import { navigate } from "astro/virtual-modules/transitions-router.js";
 
@@ -32,8 +31,9 @@ const LoginForm = () => {
       if (data.user.role === "admin") {
         setIsAdmin(true);
       }
+      navigate('/admin/dashboard');
       setLoader(false);
-      navigate('admin')
+
 
     } catch (error: any) {
       setModal({

@@ -3,6 +3,9 @@ import LogoLaEmiliana from "./Logo_LaEmiliana.astro";
 import LocationSVG from "../../SVG/LocationSVG";
 import Buscador from "./buscador/Buscador.tsx";
 import Menu from "./Menu.astro";
+import Loader from "../../DesingSystem/Loader";
+import Modal from "../../components/modal/Modal";
+import DialogIndex from "../DS/Dialog/DialogIndex";
 ---
 
 <div class="sticky top-0 z-50 bg-white pb-5">
@@ -16,7 +19,10 @@ import Menu from "./Menu.astro";
       </div>
     </div>
 
-   <Menu/>
+    <Menu />
   </section>
-  <Buscador client:visible />
+  <Buscador client:load />
+  <Loader client:load />
+  <Modal client:visible />
+  <DialogIndex client:visible />
 </div>

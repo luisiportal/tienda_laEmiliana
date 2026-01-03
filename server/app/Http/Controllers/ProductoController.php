@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Helpers\SlugifyHelper;
 
 use App\Helpers\RedimensionarImagenHelper;
 use App\Models\Producto;
@@ -10,67 +11,84 @@ use Illuminate\Support\Facades\Validator;
 class ProductoController extends Controller
 {
 
+   public function getProductosVender()
+   {
+
+      $productos = Producto::with('categoria')->where('stock', '>=', 1)->get();
+      return response()->json($productos, 200);
+
+
+   }
+
    public function getAllproductos()
    {
+
+      $productos = Producto::with('categoria')->orderByDesc('updated_at')->get();
+      return response()->json($productos, 200);
+
+
    }
-   public function getProductobyId()
+   public function getProductobyId($id)
    {
+      $producto = Producto::with('categoria')->findOrFail($id);
+
+
+      return response()->json($producto, 200);
+
    }
 
    public function createProducto(Request $request)
    {
-   $validator = Validator::make($request->all(), [
-    'name'        => 'required|string|max:255',
-    'description' => 'nullable|string|max:1000',
-    'price_usd'   => 'required|numeric|min:0',
-    'cost'        => 'required|numeric|min:0',
-    'stock'       => 'required|integer|min:0',
-    'image'       => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-    'category'    => 'required|string|max:255',
-    'alias'       => 'nullable|string|max:255|unique:productos,alias,',
-    'agotado'     => 'required|boolean',
+      $validator = Validator::make($request->all(), [
+         'nombre' => 'required|string|max:255',
+         'description' => 'nullable|string|max:1000',
+         'price_usd' => 'required|numeric|min:0',
+         'cost' => 'required|numeric|min:0',
+         'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+         'categoria' => 'required|integer',
+         'alias' => 'nullable|string|max:255|unique:productos,alias,',
 
-]);
+      ]);
 
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors()
-            ], 422);
-        }
+      if ($validator->fails()) {
+         return response()->json([
+            'status' => 'error',
+            'errors' => $validator->errors()
+         ], 422);
+      }
+      $slug = SlugifyHelper::make($request->nombre);
+      $producto = Producto::create([
+         'nombre' => $request->nombre,
+         'description' => $request->description,
+         'price_usd' => $request->price_usd,
+         'cost' => $request->cost,
+         'stock' => 0,
+         'categoria' => $request->categoria,
+         'alias' => $slug,
+         'agotado' => true,
+         'image' => "default.webp",
 
-   $producto = Producto::create([
-    'name'        => $request->name,
-    'description' => $request->description,
-    'price_usd'   => $request->price_usd,
-    'cost'        => $request->cost,
-    'stock'       => $request->stock,
-    'image'       => $request->image,       // archivo subido
-    'category'    => $request->category,
-    'alias'       => $request->alias,
-    'agotado'     => $request->agotado,
-    'image_url'   => $request->image_url,   // URL de la imagen
-]);
+      ]);
 
 
 
-        if ($request->hasFile('image_url')) {
-            $nombre = $request->file("image_url")->getClientOriginalName();
-            $file = $request->file('image_url');
-            RedimensionarImagenHelper::resizeImagen($file, 'images/autores', $nombre);
+      if ($request->hasFile('image_url')) {
+         $nombre = $request->file("image_url")->getClientOriginalName();
+         $file = $request->file('image_url');
+         RedimensionarImagenHelper::resizeImagen($file, 'images/productos', $nombre);
 
-            $producto->image = $nombre;
-            $producto->save();
-        }
-
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Creado Producto Correctamente',
+         $producto->image = $nombre;
+         $producto->save();
+      }
 
 
-        ], 201);
+      return response()->json([
+         'status' => 'success',
+         'message' => 'Creado Producto Correctamente',
+
+
+      ], 201);
    }
 
    public function updateProducto(Request $request, $id)
@@ -84,17 +102,32 @@ class ProductoController extends Controller
       // Validar los datos entrantes
       $request->validate([
          'nombre' => 'required|string|max:255',
-         'precio' => 'required|numeric|min:0',
+         'price_usd' => 'required|numeric|min:0',
          'descripcion' => 'nullable|string',
+         'categoria' => 'required|integer',
       ]);
 
       // Actualizar campos
       $producto->nombre = $request->input('nombre');
-      $producto->precio = $request->input('precio');
-      $producto->descripcion = $request->input('descripcion');
+      $producto->price_usd = $request->input('price_usd');
+      $producto->description = $request->input('description');
+      $producto->categoria = $request->input('categoria');
+      $producto->cost = $request->input('cost');
+
+
+
+      if ($request->hasFile('image_url')) {
+         $nombre = $request->file("image_url")->getClientOriginalName();
+         $file = $request->file('image_url');
+         RedimensionarImagenHelper::resizeImagen($file, 'images/productos', $nombre);
+
+         $producto->image = $nombre;
+      }
+
+
       $producto->save();
 
-      return response()->json(['mensaje' => 'Producto actualizado correctamente', 'producto' => $producto], 200);
+      return response()->json(['message' => 'Producto actualizado correctamente', 'producto' => $producto], 200);
    }
 
 
@@ -108,7 +141,7 @@ class ProductoController extends Controller
 
       $producto->delete();
 
-      return response()->json(['mensaje' => 'Producto eliminado correctamente'], 200);
+      return response()->json(['message' => 'Producto eliminado correctamente'], 200);
    }
 
 

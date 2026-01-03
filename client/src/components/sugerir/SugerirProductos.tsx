@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { productos } from "../../productos";
 import { useCarritoStore } from "../../stores/carritoStore";
 import type { CartItem, Producto } from "../../types/General.type";
+import { useProductosVender } from "../../hooks/useProductosVender";
 
 const SugerirProductos = () => {
   const { setCarrito, carrito } = useCarritoStore();
   const [showMensaje, setShowMensaje] = useState(false);
+  const {productos} = useProductosVender();
 
   const randomProducts = productos
     .filter((item) => item.agotado === false)
@@ -13,12 +14,12 @@ const SugerirProductos = () => {
     .slice(0, 5); // toma los primeros 5
 
   const calcuCanrtidad = (producto: Producto) => {
-    const { precio } = producto;
-    if (precio >= 5) return 2;
-    if (precio >= 10) return 1;
-    if (precio <= 4) return 5;
-    if (precio <= 2) return 10;
-    return 5
+    const { price_usd } = producto;
+    if (price_usd >= 5) return 2;
+    if (price_usd >= 10) return 1;
+    if (price_usd <= 4) return 5;
+    if (price_usd <= 2) return 10;
+    return 5;
   };
 
   const productoConCantidad = randomProducts.map((producto) => ({

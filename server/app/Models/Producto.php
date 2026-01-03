@@ -17,8 +17,13 @@ class Producto extends Model
         'cost',
         'stock',
         'image',
-        'category',
+        'categoria',
         'alias',
         'agotado',
     ];
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categoria');
+    }
+
 }

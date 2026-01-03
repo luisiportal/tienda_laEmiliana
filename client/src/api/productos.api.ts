@@ -3,6 +3,8 @@ import axios from "./axios.js";
 
 export const getAllproductos = async () => {
   const response = await axios.get("productostodos");
+  console.log(response);
+  
   return response.data as Producto[];
 };
 
@@ -25,5 +27,5 @@ export const updateProductoRequest = async (values: FormData, id: number) => {
   return await axios.post(`productos/edit/${id}`, values);
 };
 
-export const deleteProgramaRequest = async (id: number) =>
+export const deleteProductoRequest = async (id: number) =>
   await axios.delete(`/productos/${id}`);

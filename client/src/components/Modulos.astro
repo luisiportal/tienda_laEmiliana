@@ -1,17 +1,15 @@
 ---
-import BotonOpininFB from "./asistente/BotonOpininFB.astro";
 import PaginaFB from "./asistente/PaginaFB.astro";
-import CategoriaHome from "./categoriasHome/CategoriaHome.astro";
-
-
+import CategoriaHome from "./categoriasHome/CategoriaHome";
 ---
-  <CategoriaHome categoria="Carnícos" />
-  <CategoriaHome categoria="Lácteos" />
-    <PaginaFB/>
-  <CategoriaHome categoria="Varios" />
-  <CategoriaHome categoria="Pastas" />
-  <CategoriaHome categoria="Aseo" />
 
-  <CategoriaHome categoria="Confituras" />
-  <CategoriaHome categoria="Bebidas" />
-  <CategoriaHome categoria="Granos" />
+<CategoriaHome categoria="Carnícos" client:visible />
+<CategoriaHome categoria="Lácteos" client:visible />
+<PaginaFB />
+<CategoriaHome categoria="Varios" client:visible />
+<CategoriaHome categoria="Pastas" client:visible />
+<CategoriaHome categoria="Aseo" client:visible />
+
+<CategoriaHome categoria="Confituras" client:visible />
+<CategoriaHome categoria="Bebidas" client:visible />
+<CategoriaHome categoria="Granos" client:visible />

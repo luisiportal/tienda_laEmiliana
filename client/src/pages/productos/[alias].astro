@@ -1,6 +1,5 @@
 ---
 import AddToCart from "../../components/categoriasHome/AddToCart";
-import CategoriaHome from "../../components/categoriasHome/CategoriaHome.astro";
 import SelectorCategoriasModulo from "../../components/selectorCategorias/SelectorCategoriasModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
 import { productos } from "../../productos";
@@ -42,7 +41,7 @@ const productoEncontrado = productos.find(
     <div class="flex justify-between items-center">
       <h2 class="font-bold text-3xl">{productoEncontrado?.nombre}</h2>
       <h2 class="font-semibold text-3xl">
-        {productoEncontrado?.precio}
+        {productoEncontrado?.price_usd}
         <span class="text-xs font-semibold text-neutral-600 mt-3">USD</span>
       </h2>
     </div>

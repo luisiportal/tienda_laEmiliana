@@ -5,9 +5,9 @@ interface Props {
 const { alias } = Astro.props;
 ---
 
-<div class="absolute top-1 left-2 z-10 size-8 ">
+<div class="absolute top-1 left-2 z-10 size-8">
   <button
-  title="Compartir"
+    title="Compartir"
     onclick={`navigator.share({
       title: 'La Emiliana',
       text: 'Mira este producto de La Emiliana 👇',
@@ -15,7 +15,6 @@ const { alias } = Astro.props;
     })`}
     class="text-xs bg-green-100 rounded-lg p-1 cursor-pointer"
   >
-  <img class="size-8" src="/svg/share.svg" alt="Compartir">
-    
+    <img class="size-8" src="/svg/share.svg" alt="Compartir" />
   </button>
 </div>

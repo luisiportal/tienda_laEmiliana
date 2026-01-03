@@ -1,10 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { navigate } from "astro/virtual-modules/transitions-router.js";
 import { useModal } from "../../stores/modalStore";
-import CerrarSVG from "../../svg/CerrarSVG";
+
 
 const Modal = () => {
   const { modal, setModal } = useModal();
-  const navigate = useNavigate();
   return (
     <div>
       {modal.activo && (
@@ -16,7 +15,7 @@ const Modal = () => {
           >
             <h3 title="Mensaje Modal">{modal.mensaje}</h3>
             <button
-              className="cursor-pointer"
+              className="cursor-pointer w-5"
               id="cerrar-modal"
               onClick={() => {
                 setModal({
@@ -25,17 +24,12 @@ const Modal = () => {
                   navegarA: modal.navegarA,
                 });
                 if (modal.navegarA) {
-                  //window.location.href = `${modal.navegarA}`;
-                  if (typeof modal.navegarA === "number") {
-                    navigate(modal.navegarA); // go back/forward in history
-                  } else {
-                    navigate(modal.navegarA); // navigate to a path
-                  }
+                     navigate( modal.navegarA)
                 }
               }}
             >
               {""}
-              <CerrarSVG />
+             <img src="/svg/close.svg" alt="Cerrar" />
             </button>
           </div>
         </div>

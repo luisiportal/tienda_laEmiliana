@@ -15,6 +15,6 @@ export const slugify = (alias: string): string => {
 export const totalCarrito = ({productos}:{productos:CartItem[]})=>{
 
   return productos.reduce((total, product) => {
-    return total + product.precio * product.cantidad;
+    return total + Number(product.price_usd) * product.cantidad;
   }, 0);
 }

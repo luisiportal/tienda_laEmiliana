@@ -1,4 +1,4 @@
-import {  Outlet, useNavigate } from "react-router-dom";
+import {  Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useIsAuthenticated } from "../stores/isAuthenticatedStore";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
@@ -21,7 +21,7 @@ const ProtectedRoutes = () => {
         //  navigate("/");
       } catch (error) {
         console.log(error);
-         navigate('/login');
+         navigate('/admin/login');
       } finally {
         setLoader(false);
       }
@@ -30,7 +30,7 @@ const ProtectedRoutes = () => {
   }, []);
   if (!isAuthenticated && loader) return <LoaderTanStack />;
 
-  //if (!isAuthenticated) return <Navigate to="/login" replace />;
+ // if (!isAuthenticated) return <Navigate to="/admin/login" replace />;
 
   return <Outlet />;
 };

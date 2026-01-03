@@ -1,14 +1,43 @@
 export type Producto = {
   [key: string]: any;
-
   id: number;
   nombre: string;
   description: string;
   image: string;
-  precio: number;
-  categoria: string;
+  price_usd: number;
+  categoria: Categoria;
   alias: string;
   agotado: boolean;
+  cost: number;
+  stock: number;
+};
+export type Movimiento = {
+  [key: string]: any;
+  id: number;
+  cantidad: number;
+  tipo: String;
+  producto_id: number;
+  producto: Producto;
+};
+
+export type MovimientoPaginacion = {
+  data: Movimiento[];
+  current_page: number;
+  last_page: number;
+  total: number;
+  links: LinkPage[];
+};
+export type LinkPage = {
+  label: string;
+  url: string;
+};
+
+export type Dialog = {
+  pregunta: string;
+  identificador: number;
+  show: boolean;
+  request: any;
+  navegarA:string
 };
 export type Modal = {
   mensaje: string;

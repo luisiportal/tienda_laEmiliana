@@ -20,8 +20,8 @@ Route::middleware(['auth:api', IsAdmin::class])->group(function () {
         Route::get('productostodos', 'getAllproductos');
 
         Route::post('productos', 'createProducto');
-        Route::put('productos/edit/${id}', 'updateProducto');
-        Route::delete('productos', 'deleteProducto');
+        Route::put('productos/edit/{id}', 'updateProducto');
+        Route::delete('productos/{id}', 'deleteProducto');
 
 
 

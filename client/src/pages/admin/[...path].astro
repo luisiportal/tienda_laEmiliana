@@ -1,0 +1,38 @@
+---
+import AppRouter from '../../components/admin/AppRouter';
+import AdminLayout from '../../layouts/AdminLayout.astro';
+
+
+export function getStaticPaths() {
+  return [
+    { params: { path: "productos" }},
+    { params: { path: "productos/nuevo" }},
+    { params: { path: "admin/categorias" }},
+    { params: { path: "categorias/nuevo" }},
+    { params: { path: "facturas" }},
+    { params: { path: "clientes" }},
+    { params: { path: "dashboard" }},
+    { params: { path: "movimientos" }},
+    { params: { path: "movimientos/entrada" }},
+    { params: { path: "movimientos/salida" }},
+    { params: { path: "/" }},
+    { params: { path: "/login" }},
+  ]
+}
+
+---
+
+<AdminLayout
+  title="Panel Administrativo"
+  description="La Emiliana tienda de productos alimenticios"
+  img_url="favicons/web-app-manifest-512x512.png"
+  url="https://www.tiendalaemiliana.com"
+  
+>
+
+ <AppRouter client:only="react" />
+</AdminLayout>
+
+
+
+

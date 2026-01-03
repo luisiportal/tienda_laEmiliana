@@ -31,6 +31,7 @@ const Dashboard = () => {
             description="Entradas y Salidas del sistema "
             image="arrows.svg"
             alias="movimientos"
+            enlace="/admin/movimientos/"
 
           />
           <CardCortaDashboard

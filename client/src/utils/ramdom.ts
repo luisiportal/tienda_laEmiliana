@@ -1,7 +1,8 @@
 // utils/random.ts
 export function getRandomElements<T>(arr: T[], n: number): T[] {
-  if (n > arr.length) {
-    throw new Error("No puedes seleccionar más elementos que el tamaño del array");
+  if (n < arr.length) {
+console.log("No puedes seleccionar más elementos que el tamaño del array");
+
   }
 
   const shuffled = [...arr];

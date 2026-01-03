@@ -18,7 +18,9 @@ return new class extends Migration {
             $table->decimal('price_usd');
             $table->decimal('cost');
             $table->integer('stock');
-            $table->integer('categoria');
+            $table->foreignId('categoria')
+                ->constrained('categorias')
+                ->onDelete('cascade');
             $table->string('alias');
             $table->string('image');
             $table->boolean('agotado');

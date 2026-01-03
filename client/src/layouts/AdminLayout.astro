@@ -1,0 +1,69 @@
+---
+import BarraAdmin from "../components/admin/BarraAdmin/BarraAdmin.astro";
+import Header from "../components/header/Header.astro";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description: string;
+  img_url: string;
+  url: string;
+}
+
+const { title, description, img_url, url } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      property="og:title"
+      content='Panel Administrativo | La Emiliana'
+    />
+  
+    <meta property="og:description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="La Emiliana" />
+    <meta
+      name="keywords"
+      content="alimentos, bebidas, tienda online, La Emiliana,pollo,huevo,aceite"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="La Emiliana" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <meta
+      name="title"
+      content='Panel Administrativo | La Emiliana'
+    />
+
+    <title>
+      Panel Administrativo | La Emiliana
+    </title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
+    <ClientRouter />
+  </head>
+  <body>
+    <section class="h-screen max-w-sm mx-auto">
+      <Header />
+      
+
+      <slot />
+      <BarraAdmin/>
+    </section>
+  </body>
+</html>

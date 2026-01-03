@@ -3,7 +3,10 @@ import { useCargarCarrito } from "../../hooks/useCargarCarrito";
 const BarraCarrito = () => {
   const { carrito } = useCargarCarrito();
   return (
-    <a href="/carrito" className="bg-green-500 h-14 sticky w-full bottom-0 flex gap-3 items-center justify-center z-50">
+    <a
+      href="/carrito"
+      className="bg-green-500 h-14 sticky w-full bottom-0 flex gap-3 items-center justify-center z-50"
+    >
       <div>
         {" "}
         <h4 className="text-xs font-light -mb-2">Ver el</h4>

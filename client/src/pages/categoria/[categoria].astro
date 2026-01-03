@@ -1,7 +1,6 @@
 ---
 import { categorias } from "../../categorias";
 import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
-import ProductoCard from "../../components/categoriasHome/ProductoCard.astro";
 import TituloModulo from "../../components/DS/TituloModulo.astro";
 import Modulos from "../../components/Modulos.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
@@ -37,9 +36,7 @@ const nombreCategoria = productosCategoria[0]?.categoria
 
   <section class="flex gap-5 flex-wrap m-3">
     {
-      productosCategoria.map((producto) => (
-        <ProductoCard producto={producto} css="w-full" />
-      ))
+  
     }
   </section>
   <Modulos />

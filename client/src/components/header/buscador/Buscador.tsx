@@ -1,19 +1,21 @@
 import { useState, type ChangeEvent } from "react";
 import type { Producto } from "../../../types/General.type";
-import { productos } from "../../../productos";
+
+import { useProductosVender } from "../../../hooks/useProductosVender";
 
 const Buscador = () => {
   const [encontrados, setEncontrados] = useState<Producto[]>([]);
   const [show, setShow] = useState(false);
+  const { productos } = useProductosVender();
 
   const buscarProductos = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value.toLowerCase();
 
-    const filtrados = productos.filter((item) =>
+    const filtrados = productos?.filter((item) =>
       item.nombre.toLowerCase().includes(text)
     );
 
-    setEncontrados(filtrados);
+    setEncontrados(filtrados ?? []);
     setShow(true);
   };
 
@@ -27,7 +29,10 @@ const Buscador = () => {
           placeholder="Buscar productos..."
         />
       </div>
-      <a href="/carrito" className="bg-[#FFC20E] size-10 rounded-xl flex justify-center items-center">
+      <a
+        href="/carrito"
+        className="bg-[#FFC20E] size-10 rounded-xl flex justify-center items-center"
+      >
         <img className="size-6" src="/svg/Cart.svg" alt="Carrito" />
       </a>
       {show && (

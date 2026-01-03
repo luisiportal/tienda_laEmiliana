@@ -21,7 +21,7 @@ class IsAdmin
         if ($user && $user->role === 'admin') {
             return $next($request);
         } else {
-            return response()->json(['message' => 'Usuario sin autorización a esta peticion '], 403);
+            return response()->json(['message' => 'Usuario sin autorización a esta peticion'], 403);
         }
     }
 }
