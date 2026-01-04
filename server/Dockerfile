@@ -1,46 +1,20 @@
-FROM php:8.2-fpm-alpine
+FROM richarvey/nginx-php-fpm:3.1.6
 
-# Instala dependencias necesarias para Laravel
-RUN apk add --no-cache \
-    busybox\
-	bash \
-    libzip-dev \
-    oniguruma-dev \
-    unzip \
-    curl \
-    git \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    freetype-dev \
-  && docker-php-ext-configure gd --with-jpeg --with-freetype \
-  && docker-php-ext-install pdo pdo_mysql zip gd
-
-# Copia Composer desde la imagen oficial
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-
-# Crea el directorio de trabajo y copia el código
-WORKDIR /var/www/
 COPY . .
 
-RUN if [ ! -f composer.json ]; then echo "❌ composer.json no encontrado en $(pwd)"; exit 1; else echo "✅ composer.json OK"; fi
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
 
-RUN mkdir -p storage bootstrap/cache \
-    && composer install --no-dev --optimize-autoloader --no-scripts \
-    && chown -R www-data:www-data /var/www \
-    && chmod -R 775 storage bootstrap/cache
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN composer install --no-dev --optimize-autoloader --no-scripts \
-    && chown -R www-data:www-data /var/www \
-    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
-
-
-# Copiar y preparar entrypoint para migraciones
-COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-# Usar entrypoint para ejecutar migraciones al iniciar el contenedor
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
-# Iniciar PHP-FPM
-CMD ["php-fpm"]
+CMD ["/start.sh"]
