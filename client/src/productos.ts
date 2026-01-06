@@ -50,7 +50,7 @@ export const productos: Producto[] = [
     image: "salchichas-guibon.jpg",
     categoria: "Carnícos",
     alias: "salchicha-3kg",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 5,
