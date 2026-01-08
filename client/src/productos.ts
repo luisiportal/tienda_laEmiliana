@@ -222,7 +222,7 @@ export const productos: Producto[] = [
     image: "naranja1.5l.jpg",
     categoria: "Bebidas",
     alias: "pomo-naranja",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 23,
@@ -262,7 +262,7 @@ export const productos: Producto[] = [
     image: "pasta-bambu.webp",
     categoria: "Aseo",
     alias: "pasta-bambu",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 27,
@@ -422,7 +422,7 @@ export const productos: Producto[] = [
     image: "touch.jpg",
     categoria: "Confituras",
     alias: "sorbeto-touch",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 43,
@@ -524,4 +524,47 @@ export const productos: Producto[] = [
     alias: "detergente-brisas",
     agotado: false,
   },
+   {
+    id: 53,
+    nombre: "Sazón Goya (U)",
+    precio: 0.3,
+    description: "Especial para arroces, salsas, guisos",
+    image: "sazongoya.webp",
+    categoria: "Varios",
+    alias: "sazon-goya",
+    agotado: false,
+  },
+     {
+    id: 54,
+    nombre: "Jabón de Rosas",
+    precio: 0.45,
+    description: "100g , con extracto de rosa natural",
+    image: "jabon-marwa.webp",
+    categoria: "Aseo",
+    alias: "jabon-marwa",
+    agotado: false,
+  },
+  {
+    id: 55,
+    nombre: "Galleticas de Leche (U)",
+    precio: 0.25,
+    description: "Galleticas sabor leche",
+    image: "milk-biscuit.webp",
+    categoria: "Confituras",
+    alias: "milk-biscuit",
+    agotado: false,
+  },
+   {
+    id: 56,
+    nombre: "Yogurt Natural (4u)",
+    precio: 2.69,
+    description: "Pack 4 unidades potecitos de 100g",
+    image: "natural.webp",
+    categoria: "Lácteos",
+    alias: "yogurt-natural-vima",
+    agotado: false,
+  },
+
+
+
 ];
