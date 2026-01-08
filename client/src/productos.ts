@@ -162,7 +162,7 @@ export const productos: Producto[] = [
     image: "vima.webp",
     categoria: "Varios",
     alias: "pure-vima",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 17,
