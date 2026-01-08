@@ -292,7 +292,7 @@ export const productos: Producto[] = [
     image: "detergente-rayan.jpg",
     categoria: "Aseo",
     alias: "detergente-rayan",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 30,
