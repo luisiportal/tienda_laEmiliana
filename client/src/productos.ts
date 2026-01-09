@@ -564,6 +564,36 @@ export const productos: Producto[] = [
     alias: "yogurt-natural-vima",
     agotado: false,
   },
+     {
+    id: 57,
+    nombre: "Cigarro Popular Roja (1)",
+    precio: 1.25,
+    description: "",
+    image: "popular-rojo.webp",
+    categoria: "Cigarros",
+    alias: "popular-rojo",
+    agotado: false,
+  },
+   {
+    id: 58,
+    nombre: "Cigarro H.Human Sin Filtro (1)",
+    precio: 1.05,
+    description: "",
+    image: "human-sinfiltro.webp",
+    categoria: "Cigarros",
+    alias: "human-sinfiltro",
+    agotado: false,
+  },
+     {
+    id: 59,
+    nombre: "Cigarro EnglishMan (1)",
+    precio: 1.5,
+    description: "",
+    image: "englishman.webp",
+    categoria: "Cigarros",
+    alias: "englishman",
+    agotado: false,
+  },
 
 
 
