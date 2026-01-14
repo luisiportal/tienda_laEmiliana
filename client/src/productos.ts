@@ -452,7 +452,7 @@ export const productos: Producto[] = [
     image: "malta-bucanero.webp",
     categoria: "Bebidas",
     alias: "malta-bucanero",
-    agotado: true,
+    agotado: false,
   },
   {
     id: 46,
