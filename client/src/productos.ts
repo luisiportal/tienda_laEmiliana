@@ -472,7 +472,7 @@ export const productos: Producto[] = [
     image: "cafe-sublime.webp",
     categoria: "Varios",
     alias: "cafe-sublime",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 48,
