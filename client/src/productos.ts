@@ -242,7 +242,7 @@ export const productos: Producto[] = [
     image: "lata-pera.webp",
     categoria: "Bebidas",
     alias: "jugo-lata-pera",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 25,
@@ -452,7 +452,7 @@ export const productos: Producto[] = [
     image: "malta-bucanero.webp",
     categoria: "Bebidas",
     alias: "malta-bucanero",
-    agotado: false,
+    agotado: true,
   },
   {
     id: 46,
@@ -502,7 +502,7 @@ export const productos: Producto[] = [
     image: "compotapera.webp",
     categoria: "Varios",
     alias: "compota-pera",
-    agotado: false,
+    agotado: true,
   },
     {
     id: 51,
