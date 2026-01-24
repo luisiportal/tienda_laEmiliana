@@ -8,17 +8,17 @@ import { usuarioSchema } from "../../schemas/UsuarioSchema";
 import GeneralButton from "../../DesingSystem/GeneralButton";
 import { loginRequest } from "../../api/auth.api";
 import { useIsAuthenticated } from "../../stores/isAuthenticatedStore";
-import { navigate } from "astro/virtual-modules/transitions-router.js";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const { setIsAuthenticated, setUser, setIsAdmin } = useIsAuthenticated();
   const { setLoader } = useLoader();
   const { setModal } = useModal();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoader(false);
   }, []);
-
 
   const onsubmit = async (values: User) => {
     try {
@@ -31,10 +31,8 @@ const LoginForm = () => {
       if (data.user.role === "admin") {
         setIsAdmin(true);
       }
-      navigate('/admin/dashboard');
+      navigate("/admin/dashboard");
       setLoader(false);
-
-
     } catch (error: any) {
       setModal({
         mensaje: error.response.data.message,
@@ -55,13 +53,12 @@ const LoginForm = () => {
         role: "",
         image: "",
         email: "",
-     
       }}
       onSubmit={onsubmit}
       validationSchema={usuarioSchema}
     >
       {({ handleChange, values, errors, touched }) => (
-        <Form className="w-80  bg-neutral-200/80 rounded-2xl h-64 m-4 overflow-hidden">
+        <Form className="w-80  bg-neutral-200/80 rounded-2xl h-64 m-4 overflow-hidden mx-auto">
           <InputLogin
             nombre="Usuario"
             campo="name"
@@ -83,11 +80,7 @@ const LoginForm = () => {
           <div className="flex justify-center">
             {" "}
             <div className="w-60 flex justify-center items-center">
-              <GeneralButton
-               
-                nombreBTN="Iniciar Sesión"
-                type="submit"
-              />
+              <GeneralButton nombreBTN="Iniciar Sesión" type="submit" />
             </div>
           </div>
         </Form>

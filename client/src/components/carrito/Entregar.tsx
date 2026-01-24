@@ -5,21 +5,35 @@ import InputTextArea from "../DS/InputTextArea";
 import EnviarPedido from "./EnviarPedido";
 import type { Carrito, Entrega } from "../../types/General.type";
 import { entregaSchema } from "../../schemas/entregaSchema";
+import { createVentaRequest } from "../../api/ventas.api";
+import { useModal } from "../../stores/modalStore";
+import { useLoader } from "../../stores/loaderStore";
+import { useCarritoStore } from "../../stores/carritoStore";
 
 const Entregar = ({ carrito }: { carrito: Carrito }) => {
   const { entrega } = useEntregaStore();
+  const { setCarrito } = useCarritoStore();
+  const { setModal } = useModal();
+  const { setLoader } = useLoader();
 
   const onSubmit = async (values: Entrega) => {
-    const mensaje = carrito?.productos
-      ?.map(
-        (p) =>
-          `• ${p.cantidad} x ${p.nombre} = $${(p.price_usd * p.cantidad).toFixed(
-            2
-          )}`
-      )
-      .join("\n");
+    try {
+      setLoader(true);
 
-    const texto = `🛒 Hola, quiero hacer el siguiente pedido:
+      await createVentaRequest({
+        carrito,
+        entrega: values,
+      });
+      const mensaje = carrito?.productos
+        ?.map(
+          (p) =>
+            `• ${p.cantidad} x ${p.nombre} = $${(
+              p.price_usd * p.cantidad
+            ).toFixed(2)}`,
+        )
+        .join("\n");
+
+      const texto = `🛒 Hola, quiero hacer el siguiente pedido:
 
 📦 Pedido:
 ${mensaje}
@@ -32,10 +46,26 @@ ${mensaje}
 
 ✉️ Enviado por: ${values.ordenante}`;
 
-    const url = `https://wa.me/5358155198?text=${encodeURIComponent(texto)}`;
+      const url = `https://wa.me/5358155198?text=${encodeURIComponent(texto)}`;
+      localStorage.removeItem("carrito");
+      setCarrito({ productos: [], total: 0 });
+      setModal({
+        mensaje: "Su pedido ha sido creado. Gracias",
+        activo: true,
+        navegarA:"/"
+      });
+      window.open(url, "_blank");
+    } catch (error: any) {
+      console.log(error.response.data.error);
 
-    window.open(url, "_blank");
-    localStorage.removeItem("carrito");
+      return setModal({
+        mensaje: error.response.data.error,
+        activo: true,
+        errorColor: true,
+      });
+    } finally {
+      setLoader(false);
+    }
   };
 
   return (

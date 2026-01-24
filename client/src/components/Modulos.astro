@@ -1,15 +1,21 @@
 ---
+import type { Producto } from "../types/General.type";
 import PaginaFB from "./asistente/PaginaFB.astro";
-import CategoriaHome from "./categoriasHome/CategoriaHome";
+import CategoriaHome from "./categoriasHome/CategoriaHome.astro";
+interface Props {
+  productos: Producto[];
+}
+
+const { productos } = Astro.props as Props;
 ---
 
-<CategoriaHome categoria="Carnícos" client:visible />
-<CategoriaHome categoria="Lácteos" client:visible />
+<CategoriaHome categoria="Carnícos" productos={productos} />
+<CategoriaHome categoria="Lácteos" productos={productos} />
 <PaginaFB />
-<CategoriaHome categoria="Varios" client:visible />
-<CategoriaHome categoria="Pastas" client:visible />
-<CategoriaHome categoria="Aseo" client:visible />
-
-<CategoriaHome categoria="Confituras" client:visible />
-<CategoriaHome categoria="Bebidas" client:visible />
-<CategoriaHome categoria="Granos" client:visible />
+<CategoriaHome categoria="Varios" productos={productos} />
+<CategoriaHome categoria="Cigarros" productos={productos} />
+<CategoriaHome categoria="Bebidas" productos={productos} />
+<CategoriaHome categoria="Pastas" productos={productos} />
+<CategoriaHome categoria="Aseo" productos={productos} />
+<CategoriaHome categoria="Confituras" productos={productos} />
+<CategoriaHome categoria="Granos" productos={productos} />

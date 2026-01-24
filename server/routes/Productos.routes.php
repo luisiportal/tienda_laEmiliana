@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(ProductoController::class)->group(function () {
 
-    Route::get('productos', 'getProductosVender');
+    Route::get('productos', 'getProductosVender')->middleware('cacheResponse:3600');
 
 
 });

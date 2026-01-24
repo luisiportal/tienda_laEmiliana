@@ -16,7 +16,7 @@ const { categoria } = Astro.props as Props;
   <img
     loading="lazy"
     class="size-20 rounded-xl object-cover"
-    src={`/images/productos/${categoria.image}`}
+    src={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${categoria.image}`}
     alt={categoria.nombre}
   /></a
 >

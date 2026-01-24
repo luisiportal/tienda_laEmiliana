@@ -27,7 +27,7 @@ const ProductoCardAdmin = ({ producto }: { producto: Producto }) => {
       <div className="flex flex-col items-center gap-3 w-48">
         <img
           className="rounded-xl object-cover aspect-square w-40"
-          src={`/images/productos/${producto.image}`}
+          src={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${producto.image}`}
           alt={producto.nombre}
         />
         <Link

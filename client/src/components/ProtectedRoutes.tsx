@@ -7,16 +7,20 @@ import { useLoader } from "../stores/loaderStore";
 import LoaderTanStack from "../DesingSystem/LoaderTanStack";
 
 const ProtectedRoutes = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useIsAuthenticated();
+  const { isAuthenticated, setIsAuthenticated, setUser,setIsAdmin } = useIsAuthenticated();
   const { setLoader, loader } = useLoader();
   const navigate = useNavigate()
 
   useEffect(() => {
     const verify = async () => {
       try {
+        setLoader(true)
         const token = Cookies.get("token") || "";
         const response = await verifyTokenRequest(token);
         setUser(response.data.user);
+           if (response.data.user.role === "admin") {
+        setIsAdmin(true);
+      }
         setIsAuthenticated(true);
         //  navigate("/");
       } catch (error) {

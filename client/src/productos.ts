@@ -8,7 +8,8 @@ const precioFinal = (costo: number) => {
   return precioFinal / usd;
 };
 
-export const productos: Producto[] = [
+
+export const productos2: Producto[] = [
   {
     id: 1,
     nombre: "Flan de Leche",

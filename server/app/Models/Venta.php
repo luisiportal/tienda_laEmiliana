@@ -9,16 +9,30 @@ class Venta extends Model
 {
     use HasFactory;
 
-    // Campos que se pueden asignar masivamente
-    protected $fillable = [
-        'precio_total_producto',
-        'cantidad',
+    protected $table = 'ventas'; // Ajusta al nombre real de tu tabla
 
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'cantidad',
+        'total',
+        'producto_id',
+        'factura_id',
     ];
 
+    /**
+     * Relación con Producto
+     */
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'producto_id', 'id');
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
+    /**
+     * Relación con Factura
+     */
+    public function factura()
+    {
+        return $this->belongsTo(Factura::class, 'factura_id');
+    }
 }

@@ -18,7 +18,7 @@ const ProductoCard = ({
       <a href={`/productos/${producto.alias}`}>
         <img
           className="w-full aspect-square rounded-xl object-cover"
-          src={`/images/productos/${producto.image}`}
+          src={`/${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${producto.image}`}
           alt={producto.nombre}
         />
         <h2 className="font-bold ml-2 my-2">{producto.nombre}</h2>

@@ -7,6 +7,7 @@ use App\Models\Producto;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Spatie\ResponseCache\Facades\ResponseCache;
 
 class MovimientoController extends Controller
 {
@@ -15,7 +16,7 @@ class MovimientoController extends Controller
      */
     public function index()
     {
-        $movimientos = Movimiento::with('producto')->paginate(20);
+        $movimientos = Movimiento::with('producto')->orderByDesc('created_at')->paginate(20);
         return response()->json($movimientos, 200);
 
     }
@@ -53,14 +54,15 @@ class MovimientoController extends Controller
             }if ($tipo === "entrada") {
                 $producto->stock = $stock + $cantidad;
                 $producto->save();
-            }Movimiento::create(['cantidad' => $cantidad, 'tipo' => $tipo, 'producto_id' => $producto_id,]);
+            }
+            Movimiento::create(['cantidad' => $cantidad, 'tipo' => $tipo, 'producto_id' => $producto_id,]);
         });
 
 
-
+        ResponseCache::clear();
         return response()->json([
             'status' => 'success',
-            'message' => 'Moviemiento Realizado',
+            'message' => 'Movimiento Realizado',
 
 
         ], 201);
@@ -100,6 +102,8 @@ class MovimientoController extends Controller
             $producto->save();
             $movimiento->delete();
             DB::commit();
+            ResponseCache::clear();
+
             return response()->json(['message' => 'Movimiento eliminado y stock actualizado correctamente.'], 200);
         } catch (\Exception $e) {
             DB::rollBack();

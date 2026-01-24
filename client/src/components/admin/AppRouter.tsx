@@ -9,6 +9,7 @@ import LoginForm from "../usuarios/LoginForm";
 import ListarProductos from "../productos/ListarProductos";
 import ListarMovimientos from "../Movimientos/ListarMovimientos";
 import MovimientoForm from "../Movimientos/MovimientoForm";
+import ListarFacturas from "../Facturas/ListarFacturas";
 
 export default function AppRouter() {
   return (
@@ -26,6 +27,8 @@ export default function AppRouter() {
           <Route path="/admin/productos/edit/:id" element={<ProductoForm />} />
           <Route path="/admin/movimientos/" element={<ListarMovimientos />} />
           <Route path="/admin/movimientos/:tipo" element={<MovimientoForm />} />
+          <Route path="/admin/facturas/" element={<ListarFacturas />} />
+
 
         </Route>
       </Routes>

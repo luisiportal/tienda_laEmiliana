@@ -27,7 +27,7 @@ const MovimientoCard = ({ movimiento }: { movimiento: Movimiento }) => {
       </button>
       <img
         className="aspect-square size-20 rounded-xl"
-        src={`/images/productos/${movimiento.producto.image}`}
+        src={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${movimiento.producto.image}`}
         alt={movimiento.producto.nombre}
       />
 

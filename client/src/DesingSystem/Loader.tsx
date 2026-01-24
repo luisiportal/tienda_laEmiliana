@@ -2,7 +2,6 @@ import { useLoader } from "../stores/loaderStore";
 
 const Loader = () => {
   const { loader } = useLoader();
-  console.log('loader');
   
 
   return (

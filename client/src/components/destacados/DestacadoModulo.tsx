@@ -5,6 +5,7 @@ import DestacadoCard from "./DestacadoCard";
 
 const DestacadoModulo = () => {
   const { productos } = useProductosVender();
+  
 
   const tienen = productos.filter((item) => !item.nombre.includes('flan') && item.stock > 0);
 

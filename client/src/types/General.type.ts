@@ -11,6 +11,29 @@ export type Producto = {
   cost: number;
   stock: number;
 };
+export type Factura = {
+  id: number;
+  ventas: VentaFactura[];
+  entrega: Entrega;
+  total: number;
+  moneda: string;
+  confirmado: boolean;
+  estado: string;
+  created_at:string
+};
+
+export type VentaFactura = {
+ id:number;
+ cantidad:number
+ total:number
+ producto:Producto;
+};
+
+
+export type Venta = {
+  carrito: Carrito;
+  entrega: Entrega;
+};
 export type Movimiento = {
   [key: string]: any;
   id: number;
@@ -37,7 +60,7 @@ export type Dialog = {
   identificador: number;
   show: boolean;
   request: any;
-  navegarA:string
+  navegarA: string;
 };
 export type Modal = {
   mensaje: string;

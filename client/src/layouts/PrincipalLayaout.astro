@@ -1,4 +1,5 @@
 ---
+import BarraAdmin from "../components/admin/BarraAdmin/BarraAdmin";
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
@@ -15,7 +16,9 @@ const { title, description, img_url, url } = Astro.props as Props;
 
 <!doctype html>
 <html lang="es">
+  
   <head>
+     <link rel="preconnect" href="https://api.tiendalaemiliana.com" crossorigin>
     <script
       is:inline
       async
@@ -78,15 +81,14 @@ const { title, description, img_url, url } = Astro.props as Props;
     </title>
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
-    <ClientRouter />
-
   </head>
   <body>
     <section class="h-screen max-w-sm mx-auto">
       <Header />
-      
+
       <slot />
-      
+    <BarraAdmin client:load/>
     </section>
+
   </body>
 </html>

@@ -4,7 +4,7 @@ import CardLargaItem from "./CardLargaItem";
 const Dashboard = () => {
   return (
     <section>
-      {" "}
+     
       <div className="relative ml-1 mt-5">
         <h2 className="ml-1 font-bold text-2xl">Panel Administrativo</h2>
         <div className="-z-10 bg-green-500 w-40 h-10 absolute -top-1 rounded-br-xl rounded-tr-xl overflow-visible"></div>

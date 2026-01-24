@@ -7,6 +7,7 @@ const Buscador = () => {
   const [encontrados, setEncontrados] = useState<Producto[]>([]);
   const [show, setShow] = useState(false);
   const { productos } = useProductosVender();
+ 
 
   const buscarProductos = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value.toLowerCase();

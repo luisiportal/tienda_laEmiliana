@@ -4,7 +4,16 @@ import BarraCarrito from "../components/barraCarrito/BarraCarrito";
 import Modulos from "../components/Modulos.astro";
 import Asistente from "../components/asistente/Asistente.astro";
 import SugerirProductos from "../components/sugerir/SugerirProductos";
-import DestacadoModulo from "../components/destacados/DestacadoModulo";
+import DestacadoModulo from "../components/destacados/DestacadoModulo.astro";
+import type { Producto } from "../types/General.type";
+
+
+const response = await fetch(
+  `${import.meta.env.PUBLIC_VITE_BACKEND_URL}/api/productos`
+);
+
+
+const productos = (await response.json()) as Producto[];
 ---
 
 <PrincipalLayaout
@@ -13,9 +22,9 @@ import DestacadoModulo from "../components/destacados/DestacadoModulo";
   img_url="favicons/web-app-manifest-512x512.png"
   url="https://www.tiendalaemiliana.com"
 >
-  <DestacadoModulo client:load />
+  <DestacadoModulo productos={productos}  />
   <SugerirProductos client:only />
-  <Modulos />
+  <Modulos productos={productos}  />
   <BarraCarrito client:visible />
   <Asistente />
 </PrincipalLayaout>

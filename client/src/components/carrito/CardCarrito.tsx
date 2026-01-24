@@ -9,7 +9,7 @@ const CardCarrito = ({ item }: { item: CartItem }) => {
 
       <img
         className="size-28 shrink-0 rounded-xl object-cover"
-        src={`/images/productos/${item.image}`}
+        src={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${item.image}`}
         alt={item.nombre}
       />
       <div className="flex flex-col justify-between flex-1">

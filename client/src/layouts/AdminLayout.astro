@@ -1,5 +1,5 @@
 ---
-import BarraAdmin from "../components/admin/BarraAdmin/BarraAdmin.astro";
+import BarraAdmin from "../components/admin/BarraAdmin/BarraAdmin";
 import Header from "../components/header/Header.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
@@ -18,11 +18,8 @@ const { title, description, img_url, url } = Astro.props as Props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      property="og:title"
-      content='Panel Administrativo | La Emiliana'
-    />
-  
+    <meta property="og:title" content="Panel Administrativo | La Emiliana" />
+
     <meta property="og:description" content={description} />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="author" content="La Emiliana" />
@@ -45,25 +42,19 @@ const { title, description, img_url, url } = Astro.props as Props;
     />
     <meta name="apple-mobile-web-app-title" content="La Emiliana" />
     <link rel="manifest" href="/favicons/site.webmanifest" />
-    <meta
-      name="title"
-      content='Panel Administrativo | La Emiliana'
-    />
+    <meta name="title" content="Panel Administrativo | La Emiliana" />
 
-    <title>
-      Panel Administrativo | La Emiliana
-    </title>
+    <title>Panel Administrativo | La Emiliana</title>
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href="/images/laemiliana_logo.png" />
-    <ClientRouter />
+ 
   </head>
   <body>
     <section class="h-screen max-w-sm mx-auto">
       <Header />
-      
 
       <slot />
-      <BarraAdmin/>
+      <BarraAdmin client:load/>
     </section>
   </body>
 </html>

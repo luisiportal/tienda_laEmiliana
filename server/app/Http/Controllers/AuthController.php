@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AuthorizedDevice;
-use App\Services\LogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -28,19 +26,12 @@ class AuthController extends Controller
             return response()->json(['error' => $validator->errors()], 422);
         }
 
-
-
         $credentials = $request->only(['name', 'password']);
-
-
-
 
         try {
 
-
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['message' => 'Credencial inválida'], 401);
-
             }
 
             $user = Auth::user();
@@ -50,7 +41,7 @@ class AuthController extends Controller
 
             $domain = env('SESSION_DOMAIN', null);
 
-            $cookie = cookie('token', $token, 60, '/', $domain, $secure, $HttpOnly); // HttpOnly y Secure (mejor para producción)
+            $cookie = cookie('token', $token, 1440, '/', $domain, $secure, $HttpOnly); // HttpOnly y Secure (mejor para producción)
 
             return response()->json([
                 'token' => $token,
@@ -60,8 +51,6 @@ class AuthController extends Controller
             return response()->json(['message' => 'No se logro crear el token', $e], 500);
         }
     }
-
-
 
     public function logout()
     {
@@ -78,7 +67,6 @@ class AuthController extends Controller
         } catch (JWTException $e) {
             return response()->json(['message' => 'No se logro validar el token', $e], 401);
         }
-
 
         return response()->json([
             'user' => $user,

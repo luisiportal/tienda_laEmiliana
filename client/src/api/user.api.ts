@@ -11,7 +11,6 @@ export const getUnUserRequest = async (id: number) => {
 };
 export const getAllUserRequest = async () => {
   const response = await axios.get(`/usuarios`);
-  console.log(response.data);
 
   return response.data as User[];
 };

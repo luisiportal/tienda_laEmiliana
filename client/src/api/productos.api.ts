@@ -3,7 +3,6 @@ import axios from "./axios.js";
 
 export const getAllproductos = async () => {
   const response = await axios.get("productostodos");
-  console.log(response);
   
   return response.data as Producto[];
 };

@@ -11,11 +11,11 @@ const Modal = () => {
           <div
             className={`${
               modal.errorColor ? "bg-red-500" : "bg-green-500"
-            } flex gap-2 py-4 rounded px-10 text-neutral-50 font-semibold `}
+            } relative flex justify-between items-center gap-2 py-4 rounded px-10 min-h-20 text-neutral-50 font-semibold `}
           >
             <h3 title="Mensaje Modal">{modal.mensaje}</h3>
             <button
-              className="cursor-pointer w-5"
+              className="cursor-pointer size-8 absolute right-0 top-0"
               id="cerrar-modal"
               onClick={() => {
                 setModal({
@@ -29,7 +29,7 @@ const Modal = () => {
               }}
             >
               {""}
-             <img src="/svg/close.svg" alt="Cerrar" />
+             <img className="size-10" src="/svg/close.svg" alt="Cerrar"  />
             </button>
           </div>
         </div>

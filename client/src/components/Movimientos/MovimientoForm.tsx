@@ -48,7 +48,6 @@ const MovimientoForm = () => {
   }));
 
   const onSubmit = async (values: Movimiento) => {
-    console.log(values);
 
     const movimiento = {
       cantidad: values.cantidad,
@@ -82,7 +81,7 @@ const MovimientoForm = () => {
   };
 
   return (
-    <section className="mx-auto max-w-4xl mt-5">
+    <section className="mx-auto max-w-4xl mt-5 h-full">
       <div className="relative ml-1 mt-5">
         <h2 className="ml-1 font-bold text-2xl">
           {`Agregar un Nuevo Movimiento de ${tipo} `}

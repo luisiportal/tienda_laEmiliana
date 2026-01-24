@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Helpers\SlugifyHelper;
-
 use App\Helpers\RedimensionarImagenHelper;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Spatie\ResponseCache\Facades\ResponseCache;
 
 class ProductoController extends Controller
 {
@@ -82,7 +82,7 @@ class ProductoController extends Controller
          $producto->save();
       }
 
-
+      ResponseCache::clear();
       return response()->json([
          'status' => 'success',
          'message' => 'Creado Producto Correctamente',
@@ -126,7 +126,7 @@ class ProductoController extends Controller
 
 
       $producto->save();
-
+      ResponseCache::clear();
       return response()->json(['message' => 'Producto actualizado correctamente', 'producto' => $producto], 200);
    }
 
@@ -140,6 +140,7 @@ class ProductoController extends Controller
       }
 
       $producto->delete();
+      ResponseCache::clear();
 
       return response()->json(['message' => 'Producto eliminado correctamente'], 200);
    }

@@ -2,17 +2,17 @@
 import AddToCart from "../../components/categoriasHome/AddToCart";
 import SelectorCategoriasModulo from "../../components/selectorCategorias/SelectorCategoriasModulo.astro";
 import PrincipalLayaout from "../../layouts/PrincipalLayaout.astro";
-import { productos } from "../../productos";
 import type { CartItem, Producto } from "../../types/General.type";
 import MasMenosBTN from "../../components/carrito/MasMenosBTN";
 import BarraCarrito from "../../components/barraCarrito/BarraCarrito";
 import Modulos from "../../components/Modulos.astro";
 
-export function getStaticPaths() {
-  return productos.map((c) => ({
-    params: { alias: c.alias },
-  }));
-}
+export const prerender = false;
+const response = await fetch(
+  `${import.meta.env.PUBLIC_VITE_BACKEND_URL}/api/productos`,
+);
+
+const productos = (await response.json()) as Producto[];
 
 interface Props {
   alias: string;
@@ -20,22 +20,21 @@ interface Props {
 
 const { alias } = Astro.params;
 
-const productoEncontrado = productos.find(
-  (producto) => producto.alias == alias
-);
+const productoEncontrado = productos.find(p => p.alias === alias) ?? {} as Producto;
+
 ---
 
 <PrincipalLayaout
   title={productoEncontrado?.nombre ?? ""}
   description={productoEncontrado?.description ?? ""}
-  img_url={`images/productos/${productoEncontrado?.image}`}
+  img_url={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${productoEncontrado?.image}`}
   url={`https://www.tiendalaemiliana.com/productos/${productoEncontrado?.alias}`}
 >
   <section class="bg-neutral-200 p-3 mt-5">
     <img
       transition:name={`producto-${productoEncontrado?.id}`}
       class="w-full h-full rounded-xl object-cover mb-5"
-      src={`/images/productos/${productoEncontrado?.image}`}
+      src={`${import.meta.env.PUBLIC_VITE_BACKEND_URL}/images/productos/${productoEncontrado?.image}`}
       alt={productoEncontrado?.nombre}
     />
     <div class="flex justify-between items-center">
@@ -49,7 +48,7 @@ const productoEncontrado = productos.find(
     <p>{productoEncontrado?.description}</p>
   </section>
   {
-    productoEncontrado?.agotado ? (
+    productoEncontrado?.stock  < 1 ? (
       "Producto Agotado "
     ) : (
       <div class="flex justify-center items-center gap-5 mt-5">
@@ -64,6 +63,6 @@ const productoEncontrado = productos.find(
     )
   }
   <SelectorCategoriasModulo />
-  <Modulos />
+  <Modulos productos={productos} />
   <BarraCarrito client:visible />
 </PrincipalLayaout>
